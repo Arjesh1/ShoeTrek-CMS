@@ -1,5 +1,4 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
-
 import { toast } from "react-toastify";
 import { auth, db } from "../../config/firebase-config";
 import { addDoc, doc, setDoc } from "firebase/firestore";
@@ -37,7 +36,7 @@ export const registerUserAction = async ({password, ...rest}) => {
 
 export const setAdminAction = async({uid, ...rest}) =>{
     try {
-        await setDoc(doc(db, "User", uid), rest)
+        await setDoc(doc(db, "admin", uid), rest)
     } catch (error) {
         console.log(error.message);
         
