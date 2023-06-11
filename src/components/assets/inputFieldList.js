@@ -47,3 +47,22 @@ export const userRegisterInput = [
       required: true,
     },
   ];
+
+  export const userLoginInput = [
+  
+    {
+      label: "Email",
+      name: "email",
+      type: "email",
+      placeholder: "Sam@email.com",
+      required: true,
+    },
+    {
+      label: "Password",
+      name: "password",
+      type: "password",
+      placeholder: "*******",
+      required: true,
+    },
+   
+  ];

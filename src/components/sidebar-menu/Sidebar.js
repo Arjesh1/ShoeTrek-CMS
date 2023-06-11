@@ -47,6 +47,12 @@ export const SidebarMenu = () => {
             <Link to="/register" className="nav-link">
               Register admin
             </Link>
+            </li>
+
+            <li>
+            <Link to="/login" className="nav-link">
+              Login admin
+            </Link>
           </li>
         </ul>
       </div>

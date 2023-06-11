@@ -15,8 +15,8 @@ const Header = () => {
           <Nav className="ms-auto fs-5">
           <Nav.Link href="#page">Main Page</Nav.Link>
             <Nav.Link href="#home">Dashboard</Nav.Link>
-            <Nav.Link href="#login"><Button variant="light" className='rounded-pill'>Log In</Button></Nav.Link>
-            <Nav.Link href="#register">Register</Nav.Link>
+            <Nav.Link href="login"><Button variant="light" className='rounded-pill'>Log In</Button></Nav.Link>
+            <Nav.Link href="/register">Register</Nav.Link>
             <Nav.Link  disabled={true}><p className='text-light'>Welcome Admin!</p></Nav.Link>
             
           </Nav>
