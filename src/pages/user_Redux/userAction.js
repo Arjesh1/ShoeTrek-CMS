@@ -2,6 +2,7 @@ import { signInWithEmailAndPassword } from "firebase/auth"
 import { auth, db } from "../../config/firebase-config"
 import { toast } from "react-toastify"
 import { doc, getDoc, getDocs } from "firebase/firestore"
+import { setUser } from "./userSlice"
 
 //get user from db
 export const getUserAction = (uid) => async(dispatch) =>{
@@ -11,7 +12,7 @@ export const getUserAction = (uid) => async(dispatch) =>{
 
         if (docSnap.exists()){
             const user = {...docSnap.data(), uid}
-            console.log(user);
+            dispatch(setUser(user))
         }
 
 

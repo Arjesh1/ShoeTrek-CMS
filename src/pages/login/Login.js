@@ -31,7 +31,7 @@ const Login = () => {
     
     dispatch(loginUserAction(form))
 
-      console.log(form);
+      
   }
   
 
