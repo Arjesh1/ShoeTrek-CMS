@@ -37,6 +37,7 @@ const Register = () => {
     else{
       const isUserCreated = await registerUserAction(form);
       isUserCreated && navigate("/dashboard");
+      console.log(form);
     }
     
   }
@@ -52,6 +53,15 @@ const Register = () => {
         <hr/>
 
         <Form className="shadow-lg p-5 " onSubmit={handleOnSubmit}>
+
+        <Form.Group className="" controlId="formBasicEmail">
+              <Form.Label>Account Type</Form.Label>
+              <Form.Select name="role" onChange={handleOnChange} required={true}>
+                <option value="">-- Select user --</option>
+                <option value="admin">Admin</option>
+                
+              </Form.Select>
+            </Form.Group>
           
           {userRegisterInput.map((item, i) => (
             <CustomInput key ={i} {...item} onChange={handleOnChange} />

@@ -46,6 +46,7 @@ export const userRegisterInput = [
       placeholder: "******",
       required: true,
     },
+    
   ];
 
   export const userLoginInput = [

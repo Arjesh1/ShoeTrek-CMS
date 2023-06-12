@@ -8,9 +8,9 @@ const MainLayout = ({children}) => {
     <div>
 
         {/* header */}
-        <div className='fixed-top  '>
+       
         <Header />
-        </div>
+       
      
 
 

@@ -1,0 +1,7 @@
+.login_side{
+    height: 70vh;
+    background-image: url(../../components/assets/images/login.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}

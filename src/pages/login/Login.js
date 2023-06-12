@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import MainLayout from '../../components/layout/MainLayout'
-import { Form } from 'react-bootstrap'
+import { Button, Col, Container, Form, Image, Row } from 'react-bootstrap'
 import { userLoginInput } from '../../components/assets/inputFieldList'
 import { CustomInput } from '../../components/custominput/CustomInput'
-import { Button } from 'bootstrap'
+import login from '../../components/assets/images/login.jpg'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import UserLayout from '../../components/layout/UserLayout'
+import "./login.css"
+import { loginUserAction } from '../user_Redux/userAction'
 
 const Login = () => {
 
@@ -26,23 +28,32 @@ const Login = () => {
 
   const handleOnSubmit = async (e) =>{
     e.preventDefault()
-      // const isUserCreated = await registerUserAction(form);
-      // isUserCreated && navigate("/dashboard");
+    
+    dispatch(loginUserAction(form))
 
       console.log(form);
+  }
   
 
 
 
   return (
     <>
-    <UserLayout>
-      <div className='mt-3 pe-5 ps-5'>
+    <MainLayout>
+      <div className='p-5'>
+      <Container>
 
+        <Row>
+          <Col md={5} className='login_side '>
+          
+          
+          
+          </Col>
+          <Col md={7} className='align-self-center'>
+          <Form className=" p-5 " onSubmit={handleOnSubmit}>
+        
         <h2 className='text-center'>Login</h2>
         <hr/>
-
-        <Form className="shadow-lg p-5 " onSubmit={handleOnSubmit}>
           
           {userLoginInput.map((item, i) => (
             <CustomInput key ={i} {...item} onChange={handleOnChange} />
@@ -50,17 +61,25 @@ const Login = () => {
 
           <div className='d-grid'>
             <Button type='submit'>Submit</Button>
+
+
           </div>
           
-        </Form>
+        </Form></Col>
+        </Row>
+
+      
+        
+        
+        </Container>
         </div>
         
-      </UserLayout>
+      </MainLayout>
 
     </>
   )
 }
-}
+
 
 export default Login
 

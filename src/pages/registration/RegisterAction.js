@@ -6,7 +6,7 @@ import { addDoc, doc, setDoc } from "firebase/firestore";
 
 //register to auth and to db
 
-export const registerUserAction = async ({password, ...rest}) => {
+export const registerUserAction = async({password, ...rest}) => {
     //create auth user
 
     
@@ -34,7 +34,7 @@ export const registerUserAction = async ({password, ...rest}) => {
 
 }
 
-export const setAdminAction = async({uid, ...rest}) =>{
+export const setAdminAction = async({uid, confirmPassword, ...rest}) =>{
     try {
         await setDoc(doc(db, "admin", uid), rest)
     } catch (error) {
