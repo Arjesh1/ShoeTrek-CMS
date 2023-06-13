@@ -22,7 +22,7 @@ function App() {
   const dispatch = useDispatch()
 
 
-  //let firebase to reauth user if they reload the page
+  //let firebase to reauth user if the page is reloaded
 onAuthStateChanged(auth, (userData) =>{
   if(userData.uid){
     dispatch(getUserAction(userData.uid))
