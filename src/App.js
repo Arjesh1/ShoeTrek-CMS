@@ -12,9 +12,25 @@ import Category from './pages/category/Category';
 import Reviews from './pages/reviews/Reviews';
 import Customers from './pages/customers/Customers';
 import { ToastContainer } from 'react-toastify';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from './config/firebase-config';
+import { useDispatch } from 'react-redux';
+import { getUserAction } from './pages/user_Redux/userAction';
 
 
 function App() {
+  const dispatch = useDispatch()
+
+
+  //let firebase to reauth user if they reload the page
+onAuthStateChanged(auth, (userData) =>{
+  if(userData.uid){
+    dispatch(getUserAction(userData.uid))
+
+  }
+})
+
+
   return (
     <div className="">
 

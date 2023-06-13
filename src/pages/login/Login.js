@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import MainLayout from '../../components/layout/MainLayout'
 import { Button, Col, Container, Form, Image, Row } from 'react-bootstrap'
 import { userLoginInput } from '../../components/assets/inputFieldList'
 import { CustomInput } from '../../components/custominput/CustomInput'
 import login from '../../components/assets/images/login.jpg'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import UserLayout from '../../components/layout/UserLayout'
 import "./login.css"
@@ -14,8 +14,12 @@ const Login = () => {
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
-
   const [form, setForm] = useState([])
+  const {user} = useSelector(state => state.admin )
+
+  useEffect(() => {
+    user?.uid && navigate("/dashboard");
+  }, [user.uid]);
 
   const handleOnChange = (e)=>{
     const {name, value} = e.target
