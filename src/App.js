@@ -16,6 +16,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './config/firebase-config';
 import { useDispatch } from 'react-redux';
 import { getUserAction } from './pages/user_Redux/userAction';
+import { PrivateRoute } from './privateRoute/PrivateRoute';
 
 
 function App() {
@@ -38,13 +39,39 @@ onAuthStateChanged(auth, (userData) =>{
         <Route path='/' element={<Home/>}/>
         <Route path='login' element={<Login/>}/>
         <Route path='register' element={<Register/>}/>
-        <Route path='dashboard' element={<Dashboard/>}/>
-        <Route path='category' element={<Category/>}/>
-        <Route path='product' element={<Product/>}/>
-        <Route path='payment-option' element={<Payment/>}/>
-        <Route path='orders' element={<Orders/>}/>
-        <Route path='reviews' element={<Reviews/>}/>
-        <Route path='customers' element={<Customers/>}/>
+
+        <Route path='dashboard' element={
+          <PrivateRoute>
+        <Dashboard/>
+        </PrivateRoute>
+        }/>
+        <Route path='category' element={
+          <PrivateRoute>
+        <Category/>
+        </PrivateRoute>
+        }/>
+        <Route path='product' element={
+          <PrivateRoute>
+        <Product/>
+        </PrivateRoute>
+        }/>
+        <Route path='payment-option' element={
+          <PrivateRoute>
+        <Payment/>
+        </PrivateRoute>
+        }/>
+        <Route path='orders' element={
+        <PrivateRoute>
+        <Orders/>
+        </PrivateRoute>}/>
+        <Route path='reviews' element={
+        <PrivateRoute>
+        <Reviews/>
+        </PrivateRoute>}/>
+        <Route path='customers' element={
+        <PrivateRoute>
+        <Customers/>
+      </PrivateRoute>}/>
       </Routes>
       
         

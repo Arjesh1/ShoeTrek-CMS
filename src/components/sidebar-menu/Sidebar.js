@@ -48,12 +48,6 @@ export const SidebarMenu = () => {
               Register admin
             </Link>
             </li>
-
-            <li>
-            <Link to="/login" className="nav-link">
-              Login admin
-            </Link>
-          </li>
         </ul>
       </div>
     </div>

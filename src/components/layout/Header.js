@@ -7,6 +7,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import { useDispatch, useSelector } from 'react-redux';
 import { auth } from '../../config/firebase-config';
 import { setUser } from '../../pages/user_Redux/userSlice';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const dispatch = useDispatch()
@@ -36,16 +37,16 @@ const Header = () => {
           {user.uid? (
             <>
 
-          <Nav.Link href="/dashboard">Dashboard</Nav.Link>
-          <Nav.Link  disabled={true}><p className='text-light'>{user.fName+ " " + user.lName}</p></Nav.Link>
-          <Nav.Link href="/login"><Button variant="light" className='rounded-pill' onClick={handleOnLogOut}>Log Out</Button></Nav.Link>
+          <Link className='nav-link' to="/dashboard">Dashboard</Link>
+          <Link className='nav-link'  disabled={true}><p className='text-light'>{user.fName+ " " + user.lName}</p></Link>
+          <Link className='nav-link'><Button variant="light" className='rounded-pill' onClick={handleOnLogOut}>Log Out</Button></Link>
           </>
 
           ):(
 
             <>
-            <Nav.Link href="/login"><Button variant="light" className='rounded-pill'>Log In</Button></Nav.Link>
-            <Nav.Link href="/register">Register</Nav.Link>
+            <Link className='nav-link' to="/login"><Button variant="light" className='rounded-pill'>Log In</Button></Link>
+            <Link className='nav-link' to="/register">Register</Link>
             </>
 
           ) }
