@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import UserLayout from '../../components/layout/UserLayout'
-import { newCategoryInput } from '../../components/assets/inputFieldList'
-import { CustomInput } from '../../components/custominput/CustomInput'
-import { Button, Form } from 'react-bootstrap'
+import { Button, Col, Form, Row } from 'react-bootstrap'
 
 const Category = () => {
   const [form, setForm] = useState([])
@@ -37,8 +35,10 @@ const Category = () => {
         <h2 className='text-center'>Add Category</h2>
         <hr/>
 
-        <Form.Group>
-          <label htmlFor=''>Status</label>
+<Row>
+  <Col lg={4} className=''>
+  <Form.Group className=''>
+  <Form.Label>Status</Form.Label>
           <Form.Select name='status' onChange={handleOnChange}>
           <option value="">--Select--</option>
           <option value="active">Active</option>
@@ -46,16 +46,26 @@ const Category = () => {
           </Form.Select>
           
         </Form.Group>
+        </Col >
+  <Col lg={6} className=" "> 
+  <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+        <Form.Label>Name</Form.Label>
+        <Form.Control type="text" placeholder="Electronics" name='name' required={true} onChange={handleOnChange} />
+      </Form.Group>
+  
+  </Col>
+  <Col lg={2}><div className='d-grid '>
+  <Form.Label className='text-light'>.</Form.Label>
+            <Button type='submit'>Add</Button>
+
+
+          </div></Col>
+</Row>
+        
           
-          {newCategoryInput.map((item, i) => (
-            <CustomInput key ={i} {...item} onChange={handleOnChange} />
-          ))}
+         
 
-          <div className='d-grid'>
-            <Button type='submit'>Submit</Button>
-
-
-          </div>
+          
           
         </Form>
         </div>

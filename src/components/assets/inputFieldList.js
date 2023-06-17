@@ -68,13 +68,4 @@ export const userRegisterInput = [
    
   ];
 
-  export const newCategoryInput = [
-    {
-      label: " Name",
-      name: "name",
-      type: "text",
-      placeholder: "Party Shoes",
-      required: true,
-    },
-    
-  ];
+  
