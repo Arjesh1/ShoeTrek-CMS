@@ -1,8 +1,12 @@
 import React, { useState } from 'react'
 import UserLayout from '../../components/layout/UserLayout'
 import { Button, Col, Form, Row } from 'react-bootstrap'
+import slugify from 'slugify'
+import { addCategoryAction } from './CategoryAction'
+import { useDispatch } from 'react-redux'
 
 const Category = () => {
+  const dispatch = useDispatch()
   const [form, setForm] = useState([])
 
   const handleOnChange = (e)=>{
@@ -16,10 +20,12 @@ const Category = () => {
 
   const handleOnSubmit = async (e) =>{
     e.preventDefault()
-    
-    console.log(form);
+    const slug = slugify(form.name, {
+      trim:true,
+      lower:true
+    })
 
-      
+    dispatch(addCategoryAction({...form, slug}))
   }
 
 
@@ -32,7 +38,7 @@ const Category = () => {
         <div>
         <Form className=" p-5 pt-1 shadow m-auto " onSubmit={handleOnSubmit}>
         
-        <h2 className='text-center'>Add Category</h2>
+        <h4 className='text-center'>Add Category</h4>
         <hr/>
 
 <Row>
