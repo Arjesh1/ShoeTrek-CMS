@@ -4,6 +4,7 @@ import { Button, Col, Form, Row } from 'react-bootstrap'
 import slugify from 'slugify'
 import { addCategoryAction, getCategoriesAction } from './CategoryAction'
 import { useDispatch } from 'react-redux'
+import CategoryTable from '../../components/categoryTable/CategoryTable'
 
 const Category = () => {
   const dispatch = useDispatch()
@@ -78,6 +79,10 @@ const Category = () => {
           
           
         </Form>
+        </div>
+
+        <div className='pt-2'>
+          <CategoryTable/>
         </div>
 
       </UserLayout>
