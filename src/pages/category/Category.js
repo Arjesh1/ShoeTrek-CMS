@@ -1,13 +1,17 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import UserLayout from '../../components/layout/UserLayout'
 import { Button, Col, Form, Row } from 'react-bootstrap'
 import slugify from 'slugify'
-import { addCategoryAction } from './CategoryAction'
+import { addCategoryAction, getCategoriesAction } from './CategoryAction'
 import { useDispatch } from 'react-redux'
 
 const Category = () => {
   const dispatch = useDispatch()
   const [form, setForm] = useState([])
+
+  useEffect(()=>{
+    dispatch(getCategoriesAction())
+  })
 
   const handleOnChange = (e)=>{
     const {name, value} = e.target

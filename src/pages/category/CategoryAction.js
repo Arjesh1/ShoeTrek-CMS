@@ -11,25 +11,16 @@ export const getCategoriesAction = () => async(dispatch) =>{
         const catSnap = await getDocs(q)
         const catList = []
 
-        console.log(catSnap);
-
         catSnap.forEach((doc) => {
-        
-
             const catDt = {
                 ...doc.data(), 
                 slug: doc.id
             }
 
-            console.log(catDt);
-
             catList.push(catDt)
-
-            console.log(catList);
-
-            
-            dispatch(setCat(catList))
           });
+
+          dispatch(setCat(catList))
 
     } catch (error) {
         toast.error(error.message)
