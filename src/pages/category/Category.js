@@ -42,9 +42,7 @@ const Category = () => {
 
         <div>
         <Form className=" p-5 pt-1 shadow m-auto " onSubmit={handleOnSubmit}>
-        
-        <h4 className='text-center'>Add Category</h4>
-        <hr/>
+      
 
 <Row>
   <Col lg={4} className=''>
