@@ -5,7 +5,7 @@ import categoryReducer from './pages/category/categotySlice'
 export default configureStore({
     reducer:{
         admin: adminReducer,
-        category: categoryReducer,
+        cat: categoryReducer,
         
     }
 })
