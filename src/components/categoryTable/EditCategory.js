@@ -1,8 +1,16 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button, Form } from 'react-bootstrap'
+import { useDispatch } from 'react-redux'
+import { setShowModal } from '../../system/systemSlice'
 
 const EditCategory = ({editCat}) => {
     const [form, setForm] = useState([])
+    const dispatch= useDispatch()
+
+    useEffect(() => {
+        //   dispatch(getCategoriesAction());
+        setForm(editCat);
+      }, [dispatch, editCat]);
     
     
     const handleOnChange = (e)=>{
@@ -18,7 +26,12 @@ const EditCategory = ({editCat}) => {
       const handleOnSubmit = async (e) =>{
         e.preventDefault()
         console.log(form);
+        dispatch(setShowModal(false))
 
+        
+      }
+
+      const handleOnDelete = () =>{
         
       }
 
@@ -32,7 +45,7 @@ const EditCategory = ({editCat}) => {
         
         <Form.Group className=''>
         <Form.Label>Status</Form.Label>
-                <Form.Select name='status' value={editCat.status} onChange={handleOnChange}>
+                <Form.Select name='status' value={form.status} onChange={handleOnChange}>
                 <option value="">--Select--</option>
                 <option value="active">Active</option>
                 <option value="inactive">Inactive</option>
@@ -42,13 +55,17 @@ const EditCategory = ({editCat}) => {
               
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Name</Form.Label>
-              <Form.Control type="text" placeholder="Electronics" name='name' value={editCat.name} required={true} onChange={handleOnChange} />
+              <Form.Control type="text" placeholder="Electronics" name='name' value={form.name} required={true} onChange={handleOnChange} />
             </Form.Group>
         
         
         
         <div className='d-grid'>
                   <Button type='submit' variant='warning'>Update</Button>
+                  </div>
+
+                  <div className='d-grid mt-3'>
+                  <Button  variant='danger' onClick={handleOnDelete}>Delete</Button>
                   </div>
       
       
