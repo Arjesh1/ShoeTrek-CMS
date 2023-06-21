@@ -1,14 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, Table } from 'react-bootstrap'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { setShowModal } from '../../system/systemSlice'
+import CustomModal from '../modal/CustomModal'
+import EditCategory from './EditCategory'
+
 
 const CategoryTable = () => {
 
+  const dispatch = useDispatch()
     const {category} = useSelector(state => state.cat)
+    const [selectedCat, setSelectedCat] = useState({})
+
+    const handleOnEdit = (item) =>{
+      setSelectedCat(item)
+      dispatch(setShowModal(true))
+     
+      
+
+      
+
+    }
 
   
   return (
     <>
+    {selectedCat.slug && (
+        <CustomModal heading="Update Category">
+          <EditCategory editCat={selectedCat} />
+        </CustomModal>
+      )}
 <Table striped bordered hover responsive> 
       <thead>
         <tr>
@@ -24,7 +45,7 @@ const CategoryTable = () => {
             <td>{i + 1}</td>
             <td>{item.name}</td>
             <td>{item.status}</td>
-            <td className=''><Button variant='warning' >Edit</Button></td>
+            <td className=''><Button variant='warning' onClick={()=>{handleOnEdit(item)}} >Edit</Button></td>
           </tr>
 
         ))}

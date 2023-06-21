@@ -12,7 +12,8 @@ const Category = () => {
 
   useEffect(()=>{
     dispatch(getCategoriesAction())
-  })
+    
+  }, [dispatch])
 
   const handleOnChange = (e)=>{
     const {name, value} = e.target
