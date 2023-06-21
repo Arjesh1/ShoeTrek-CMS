@@ -41,7 +41,7 @@ const Category = () => {
         <hr/>
 
         <div>
-        <Form className=" p-5 pt-1 shadow m-auto " onSubmit={handleOnSubmit}>
+        <Form className=" p-5 pt-2 shadow m-auto rounded " onSubmit={handleOnSubmit}>
       
 
 <Row>
