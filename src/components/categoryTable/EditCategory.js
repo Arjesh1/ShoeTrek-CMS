@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Form } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
-import { setShowModal } from '../../system/systemSlice'
+import { addCategoryAction } from '../../pages/category/CategoryAction'
 
 const EditCategory = ({editCat}) => {
     const [form, setForm] = useState([])
@@ -25,10 +25,10 @@ const EditCategory = ({editCat}) => {
     
       const handleOnSubmit = async (e) =>{
         e.preventDefault()
-        console.log(form);
-        dispatch(setShowModal(false))
-
-        
+        if (window.confirm("Are you sure you want to update this category?")) {
+          dispatch(addCategoryAction(form));
+        }
+       
       }
 
       const handleOnDelete = () =>{
@@ -61,7 +61,7 @@ const EditCategory = ({editCat}) => {
         
         
         <div className='d-grid'>
-                  <Button type='submit' variant='warning'>Update</Button>
+                  <Button type='submit' variant='primary'>Update</Button>
                   </div>
 
                   <div className='d-grid mt-3'>
