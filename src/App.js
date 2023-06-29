@@ -6,7 +6,7 @@ import Login from './pages/login/Login';
 import Register from './pages/registration/Register';
 import Dashboard from './pages/dashboard/Dashboard';
 import Product from './pages/product/Product';
-import Payment from './pages/payment option/Payment';
+
 import Orders from './pages/orders/Orders';
 import Category from './pages/category/Category';
 import Reviews from './pages/reviews/Reviews';
@@ -17,6 +17,7 @@ import { auth } from './config/firebase-config';
 import { useDispatch } from 'react-redux';
 import { getUserAction } from './pages/user_Redux/userAction';
 import { PrivateRoute } from './privateRoute/PrivateRoute';
+import Payment from './pages/payment-option/Payment';
 
 
 function App() {
