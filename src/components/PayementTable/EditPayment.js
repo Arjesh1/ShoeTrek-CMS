@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Form } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
-import { addCategoryAction } from '../../pages/category/CategoryAction'
+import { addPaymentOptionAction, deletePaymentOptionAction, getPaymentOptionAction } from '../../pages/payment-option/PaymentAction'
 
 const EditPayment = ({editCat}) => {
     const [form, setForm] = useState([])
     const dispatch= useDispatch()
 
     useEffect(() => {
-        //   dispatch(getCategoriesAction());
+          dispatch(getPaymentOptionAction());
         setForm(editCat);
       }, [dispatch, editCat]);
     
@@ -25,13 +25,18 @@ const EditPayment = ({editCat}) => {
     
       const handleOnSubmit = async (e) =>{
         e.preventDefault()
-        if (window.confirm("Are you sure you want to update this category?")) {
-          dispatch(addCategoryAction(form));
+        if (window.confirm("Are you sure you want to update this payment option?")) {
+          // dispatch(addPaymentOptionAction(form));
+          console.log(form);
         }
        
       }
 
       const handleOnDelete = () =>{
+        if (window.confirm("Are you sure you want to deleted this payment option?")) {
+          // dispatch(deletePaymentOptionAction(form));
+        }
+
         
       }
 
@@ -66,17 +71,8 @@ const EditPayment = ({editCat}) => {
 
                   <div className='d-grid mt-3'>
                   <Button  variant='danger' onClick={handleOnDelete}>Delete</Button>
-                  </div>
-      
-      
-                
-      
-              
-                
-               
-      
-                
-                
+                  </div>  
+                     
               </Form>
     </div>
   )

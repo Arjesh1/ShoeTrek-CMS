@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
 import { Button, Table } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import { setShowModal } from '../../system/systemSlice'
-import CustomModal from '../modal/CustomModal'
 import EditPayment from './EditPayment'
+import CustomModal from '../modal/CustomModal'
+import { setShowModal } from '../../system/systemSlice'
 
 
 const PaymentTable = () => {
 
   const dispatch = useDispatch()
-    const {category} = useSelector(state => state.cat)
+    const {payment} = useSelector(state => state.payOption)
     const [selectedCat, setSelectedCat] = useState({})
 
     const handleOnEdit = (item) =>{
@@ -25,8 +25,8 @@ const PaymentTable = () => {
   
   return (
     <>
-    {selectedCat.slug && (
-        <CustomModal heading="Update Category">
+    {selectedCat && (
+        <CustomModal heading="Update Payment">
           <EditPayment editCat={selectedCat} />
         </CustomModal>
       )}
@@ -34,15 +34,17 @@ const PaymentTable = () => {
       <thead>
         <tr>
           <th>#</th>
+          <th>Thumbnail</th>
           <th>Name</th>
           <th>Status</th>
           <th>Action</th>
         </tr>
       </thead>
       <tbody>
-        {category.map((item, i )=>(
+        {payment.map((item, i )=>(
             <tr key={item}>
             <td>{i + 1}</td>
+            <td><img className='' src='' alt='logo'/></td>
             <td>{item.name}</td>
             <td>{item.status}</td>
             <td className=''><Button variant='warning' onClick={()=>{handleOnEdit(item)}} >Edit</Button></td>

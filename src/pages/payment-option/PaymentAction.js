@@ -1,10 +1,11 @@
-import { collection, doc, getDocs, query, setDoc } from "firebase/firestore";
+import { collection, deleteDoc, doc, getDocs, query, setDoc } from "firebase/firestore";
 import { toast } from "react-toastify"
 import { db } from "../../config/firebase-config";
 import { setShowModal } from "../../system/systemSlice";
+import { setPay } from "./paymentSlice";
 
 
-//get all the category from firebase
+//get all the payment option from firebase
 export const getPaymentOptionAction = () => async(dispatch) =>{
     try {
 
@@ -15,13 +16,14 @@ export const getPaymentOptionAction = () => async(dispatch) =>{
         paySnap.forEach((doc) => {
             const payDt = {
                 ...doc.data(), 
+                slug: doc.id
             }
 
             payList.push(payDt)
           });
 
-          console.log(payList);
-        //   dispatch(setPay(payList))
+          
+          dispatch(setPay(payList))
 
     } catch (error) {
         toast.error(error.message)
@@ -32,12 +34,12 @@ export const getPaymentOptionAction = () => async(dispatch) =>{
 }
 
 
-//add category to db
-export const addPaymentOptionAction = ({...data}) => async (dispatch) => {
+//add payment option to db
+export const addPaymentOptionAction = ({ slug, ...rest}) => async (dispatch) => {
 
+    
     try {
-console.log(data);
-        const promise =  setDoc(doc(db, "payment_option", data.name ), data, {merge:true})
+        const promise =  setDoc(doc(db, "payment_option", slug ), rest, {merge:true})
 
         toast.promise( promise, {
             pending: "Please wait..",
@@ -60,3 +62,21 @@ console.log(data);
   
 }
 
+
+//delete payment option
+
+export const deletePaymentOptionAction = (slug) => async (dispatch) => {
+    try {
+      await deleteDoc(doc(db, "payment_option", slug));
+  
+      toast.success("New book has been added.");
+      dispatch(getPaymentOptionAction());
+      dispatch(setShowModal(false))
+    } catch (error) {
+      //log the error
+      console.log(error);
+      toast.error(
+        "Something went wrong, we could not process your request at the moment, please try again later."
+      );
+    }
+  };

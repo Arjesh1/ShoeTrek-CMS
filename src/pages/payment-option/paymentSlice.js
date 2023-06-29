@@ -9,12 +9,12 @@ const paymentSlice = createSlice({
     initialState, 
     reducers:{
         setPay: (state, {payload}) =>{
-            state.category = payload 
+            state.payment = payload 
         }
     }
 })
 
 const {reducer, actions} = paymentSlice
-export const {setCat} = actions
+export const {setPay} = actions
 
 export default reducer

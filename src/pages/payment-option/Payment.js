@@ -4,6 +4,7 @@ import { Button, Col, Form, Row } from 'react-bootstrap'
 import PaymentTable from '../../components/PayementTable/PaymentTable'
 import { useDispatch } from 'react-redux'
 import { addPaymentOptionAction, getPaymentOptionAction } from './PaymentAction'
+import slugify from 'slugify'
 
 const Payment = () => {
 
@@ -26,8 +27,12 @@ const Payment = () => {
 
   const handleOnSubmit = async (e) =>{
     e.preventDefault()
-   dispatch(addPaymentOptionAction(form))
-   console.log(form);
+    const slug = slugify(form.name, {
+      trim:true,
+      lower:true
+    })
+   dispatch(addPaymentOptionAction( {...form, slug} ))
+   
   }
 
   return (
@@ -44,7 +49,7 @@ const Payment = () => {
   <Col lg={2} className=''>
   <Form.Group className=''>
   <Form.Label>Status</Form.Label>
-          <Form.Select name='status' onChange={handleOnChange}>
+          <Form.Select name='status' required={true} onChange={handleOnChange}>
           <option value="">--Select--</option>
           <option value="active">Active</option>
           <option value="inactive">Inactive</option>
