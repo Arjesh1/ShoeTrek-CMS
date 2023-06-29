@@ -26,7 +26,7 @@ const EditPayment = ({editCat}) => {
       const handleOnSubmit = async (e) =>{
         e.preventDefault()
         if (window.confirm("Are you sure you want to update this payment option?")) {
-          // dispatch(addPaymentOptionAction(form));
+          dispatch(addPaymentOptionAction(form));
           console.log(form);
         }
        
@@ -34,7 +34,7 @@ const EditPayment = ({editCat}) => {
 
       const handleOnDelete = () =>{
         if (window.confirm("Are you sure you want to deleted this payment option?")) {
-          // dispatch(deletePaymentOptionAction(form));
+          dispatch(deletePaymentOptionAction(form));
         }
 
         

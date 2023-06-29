@@ -65,11 +65,12 @@ export const addPaymentOptionAction = ({ slug, ...rest}) => async (dispatch) => 
 
 //delete payment option
 
-export const deletePaymentOptionAction = (slug) => async (dispatch) => {
+export const deletePaymentOptionAction = ({slug, ...rest}) => async (dispatch) => {
+    
     try {
       await deleteDoc(doc(db, "payment_option", slug));
   
-      toast.success("New book has been added.");
+      toast.success("Payment option has been deleted.");
       dispatch(getPaymentOptionAction());
       dispatch(setShowModal(false))
     } catch (error) {
