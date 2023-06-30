@@ -18,7 +18,7 @@ const UserLayout = ({children}) => {
       <Container fluid>
         <Row>
           <Col  xs={2}
-              className="bg-dark text-light ps-4 pt-3"
+              className="bg-dark text-light ps-4 pt-1"
               style={{ minHeight: "82vh", minWidth: "150px" }}>
                 <SidebarMenu/>
               </Col>
