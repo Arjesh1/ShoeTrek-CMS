@@ -108,8 +108,8 @@ const Payment = () => {
   <Form.Label>Status</Form.Label>
           <Form.Select name='status' required={true} onChange={handleOnChange}>
           <option value="">--Select--</option>
-          <option value="Active">Active</option>
-          <option value="Inactive">Inactive</option>
+          <option value="active">Active</option>
+          <option value="inactive">Inactive</option>
           </Form.Select>
           
         </Form.Group>

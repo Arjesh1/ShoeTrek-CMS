@@ -11,10 +11,10 @@ const PaymentTable = () => {
 
   const dispatch = useDispatch()
     const {payment} = useSelector(state => state.payOption)
-    const [selectedCat, setSelectedCat] = useState({})
+    const [selectedPayOpt, SetSelectedPayOpt] = useState({})
 
     const handleOnEdit = (item) =>{
-      setSelectedCat(item)
+      SetSelectedPayOpt(item)
       dispatch(setShowModal(true))
      
       
@@ -26,9 +26,9 @@ const PaymentTable = () => {
   
   return (
     <>
-    {selectedCat && (
+    {SetSelectedPayOpt && (
         <CustomModal heading="Update Payment">
-          <EditPayment editCat={selectedCat} />
+          <EditPayment editPayOpt={selectedPayOpt} />
         </CustomModal>
       )}
 <Table striped bordered hover responsive> 

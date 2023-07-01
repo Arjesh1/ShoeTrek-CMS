@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Form } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
-import { addCategoryAction } from '../../pages/category/CategoryAction'
+import { addCategoryAction, getCategoriesAction } from '../../pages/category/CategoryAction'
 
 const EditCategory = ({editCat}) => {
     const [form, setForm] = useState([])
     const dispatch= useDispatch()
 
     useEffect(() => {
-        //   dispatch(getCategoriesAction());
+          dispatch(getCategoriesAction());
         setForm(editCat);
       }, [dispatch, editCat]);
     

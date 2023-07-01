@@ -1,16 +1,23 @@
 import React, { useEffect, useState } from 'react'
-import { Button, Form } from 'react-bootstrap'
+import { Button, Form, ProgressBar } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
 import { addPaymentOptionAction, deletePaymentOptionAction, getPaymentOptionAction } from '../../pages/payment-option/PaymentAction'
+import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
+import { storage } from '../../config/firebase-config'
+import "./payment_table.css"
 
-const EditPayment = ({editCat}) => {
+const EditPayment = ({editPayOpt}) => {
     const [form, setForm] = useState([])
+    const [image, setImage] = useState()
     const dispatch= useDispatch()
+    const [progress, setProgress] = useState(0);
+
+    
 
     useEffect(() => {
           dispatch(getPaymentOptionAction());
-        setForm(editCat);
-      }, [dispatch, editCat]);
+        setForm(editPayOpt);
+      }, [dispatch, editPayOpt]);
     
     
     const handleOnChange = (e)=>{
@@ -26,8 +33,42 @@ const EditPayment = ({editCat}) => {
       const handleOnSubmit = async (e) =>{
         e.preventDefault()
         if (window.confirm("Are you sure you want to update this payment option?")) {
-          dispatch(addPaymentOptionAction(form));
-          console.log(form);
+
+          if (image) {
+            const storegeRef = ref(
+                  storage,
+                  `/payment_option/images/${Date.now()}-${image.name}`
+                );
+        
+                //upload image to firebase
+                const uploadImg = uploadBytesResumable(storegeRef, image);
+        
+        
+                uploadImg.on(
+                      "state_changed",
+                      (snapshot) => {
+                        
+                        const percentage =
+                          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+              
+                        setProgress(percentage);
+                      },
+                      (error) => {
+                        console.log(error);
+                      },
+                      () => {
+                        getDownloadURL(uploadImg.snapshot.ref).then((url) => {
+                          
+                          dispatch(addPaymentOptionAction({ ...form, thumbnail: url }));
+                          
+                         
+                        });
+                        
+                      }
+                    );
+          }
+          
+          
         }
        
       }
@@ -37,6 +78,12 @@ const EditPayment = ({editCat}) => {
           dispatch(deletePaymentOptionAction(form));
         }
 
+        
+      }
+
+      const handleOnImageChange = (e) =>{
+        const {files} = e.target
+        setImage(files[0])
         
       }
 
@@ -50,7 +97,9 @@ const EditPayment = ({editCat}) => {
         
         <Form.Group className=''>
         <Form.Label>Status</Form.Label>
-                <Form.Select name='status' value={form.status} onChange={handleOnChange}>
+                <Form.Select name='status'
+                 value={form.status} 
+                 onChange={handleOnChange}>
                 <option value="">--Select--</option>
                 <option value="active">Active</option>
                 <option value="inactive">Inactive</option>
@@ -60,13 +109,30 @@ const EditPayment = ({editCat}) => {
               
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Name</Form.Label>
-              <Form.Control type="text" placeholder="Electronics" name='name' value={form.name} required={true} onChange={handleOnChange} />
+              <Form.Control type="text"  name='name' 
+              value={form.name}
+               required={true} onChange={handleOnChange} />
             </Form.Group>
+
+            <Form.Group className="mb-3" >
+        <Form.Label>Image</Form.Label>
+        <div className='mt-2 mb-2'>
+        <img className='payment_image' src={form.thumbnail} alt='logo'/>
+        </div>
+        
+        <Form.Control type="file"  name='image'  onChange={handleOnImageChange} />
+      </Form.Group>
         
         
         
         <div className='d-grid'>
                   <Button type='submit' variant='primary'>Update</Button>
+                  </div>
+
+                  <div className='d-grid'>
+
+                  <ProgressBar className='mt-1' striped variant="success" now={progress} />
+
                   </div>
 
                   <div className='d-grid mt-3'>
