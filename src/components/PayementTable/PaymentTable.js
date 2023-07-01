@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import EditPayment from './EditPayment'
 import CustomModal from '../modal/CustomModal'
 import { setShowModal } from '../../system/systemSlice'
+import "./payment_table.css"
 
 
 const PaymentTable = () => {
@@ -44,7 +45,10 @@ const PaymentTable = () => {
         {payment.map((item, i )=>(
             <tr key={item}>
             <td>{i + 1}</td>
-            <td><img className='' src='' alt='logo'/></td>
+            <td>
+              <div className='d-flex justify-content-center'>
+            <img className='payment_image' src={item.thumbnail} alt='logo'/>
+              </div></td>
             <td>{item.name}</td>
             <td>{item.status}</td>
             <td className=''><Button variant='warning' onClick={()=>{handleOnEdit(item)}} >Edit</Button></td>

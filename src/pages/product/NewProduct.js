@@ -9,9 +9,9 @@ const NewProduct = () => {
 
 <UserLayout>
 
-<div className='mt-2'>
+         <div className='mt-2'>
          <Link to="/product"> <Button variant='secondary' className='text-end'>Back</Button></Link>
-        </div>
+         </div>
 
 </UserLayout>
       

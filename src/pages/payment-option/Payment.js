@@ -7,6 +7,7 @@ import { addPaymentOptionAction, getPaymentOptionAction } from './PaymentAction'
 import slugify from 'slugify'
 import { storage } from '../../config/firebase-config'
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
+import { toast } from 'react-toastify'
 
 
 
@@ -67,11 +68,12 @@ const Payment = () => {
               },
               () => {
                 getDownloadURL(uploadImg.snapshot.ref).then((url) => {
-                  console.log(url);
-                  // dispatch(addPaymentOptionAction({ ...form, slug, thumbnail: url }));
-                  console.log(url);
+                  
+                  dispatch(addPaymentOptionAction({ ...form, slug, thumbnail: url }));
+                  dispatch(setForm([]))
+                 
                 });
-                console.log("uploaded");
+                
               }
             );
   }
@@ -82,10 +84,7 @@ const Payment = () => {
 
   const handleOnImageChange = (e) =>{
     const {files} = e.target
-    console.log(files);
-    console.log([...files]);
-   
-    // setImage([...files])
+    setImage(files[0])
     
   }
 
@@ -135,7 +134,7 @@ const Payment = () => {
   <Col lg={2}><div className='d-grid '>
   <Form.Label className='text-light'>.</Form.Label>
             <Button type='submit'>Add</Button>
-            <ProgressBar striped variant="success" now={progress} />
+            <ProgressBar className='mt-1' striped variant="success" now={progress} />
 
 
           </div></Col>
