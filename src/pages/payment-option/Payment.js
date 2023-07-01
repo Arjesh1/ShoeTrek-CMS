@@ -70,7 +70,7 @@ const Payment = () => {
                 getDownloadURL(uploadImg.snapshot.ref).then((url) => {
                   
                   dispatch(addPaymentOptionAction({ ...form, slug, thumbnail: url }));
-                  dispatch(setForm([]))
+                  
                  
                 });
                 
@@ -108,8 +108,8 @@ const Payment = () => {
   <Form.Label>Status</Form.Label>
           <Form.Select name='status' required={true} onChange={handleOnChange}>
           <option value="">--Select--</option>
-          <option value="active">Active</option>
-          <option value="inactive">Inactive</option>
+          <option value="Active">Active</option>
+          <option value="Inactive">Inactive</option>
           </Form.Select>
           
         </Form.Group>

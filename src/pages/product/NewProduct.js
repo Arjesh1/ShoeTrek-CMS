@@ -10,8 +10,11 @@ const NewProduct = () => {
 <UserLayout>
 
          <div className='mt-2'>
-         <Link to="/product"> <Button variant='secondary' className='text-end'>Back</Button></Link>
+         <Link to="/product"> <Button variant='secondary' className='text-end '><i class="fa-solid fa-circle-arrow-left"></i><span className='ms-1'>Back</span></Button></Link>
          </div>
+
+         <div className='fs-3 text-center fw-bold'>Add New Products</div>
+        <hr/>
 
 </UserLayout>
       
