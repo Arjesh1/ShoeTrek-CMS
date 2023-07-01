@@ -2,6 +2,7 @@ import React from 'react'
 import UserLayout from '../../components/layout/UserLayout'
 import { Button } from 'react-bootstrap'
 import ProductTable from '../../components/product/ProductTable'
+import { Link } from 'react-router-dom'
 
 const Product = () => {
   return (
@@ -11,7 +12,7 @@ const Product = () => {
         <div className='fs-3 text-center fw-bold'>Products</div>
         <hr/>
         <div className='d-flex justify-content-end'>
-          <Button className='text-end'>+ Add Products</Button>
+         <Link to="/add-product"> <Button className='text-end'>+ Add Products</Button></Link>
         </div>
         
         <hr/>

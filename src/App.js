@@ -18,6 +18,7 @@ import { useDispatch } from 'react-redux';
 import { getUserAction } from './pages/user_Redux/userAction';
 import { PrivateRoute } from './privateRoute/PrivateRoute';
 import Payment from './pages/payment-option/Payment';
+import NewProduct from './pages/product/NewProduct';
 
 
 function App() {
@@ -54,6 +55,11 @@ onAuthStateChanged(auth, (userData) =>{
         <Route path='product' element={
           <PrivateRoute>
         <Product/>
+        </PrivateRoute>
+        }/>
+         <Route path='add-product' element={
+          <PrivateRoute>
+        <NewProduct/>
         </PrivateRoute>
         }/>
         <Route path='payment-option' element={
