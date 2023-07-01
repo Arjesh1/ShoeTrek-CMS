@@ -46,7 +46,7 @@ const PaymentTable = () => {
             <tr key={item}>
             <td>{i + 1}</td>
             <td>
-              <div className='d-flex justify-content-center'>
+              <div className='d-flex justify-content-center pt-1 pb-1'>
             <img className='payment_image' src={item.thumbnail} alt='logo'/>
               </div></td>
             <td>{item.name}</td>
