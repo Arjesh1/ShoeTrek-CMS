@@ -29,6 +29,12 @@ const NewProduct = () => {
     })
   }
 
+  const handleOnImageChange = (e) =>{
+    const {name, files} = e.target
+
+    console.log(name, files);
+  }
+
   const handleOnSubmit = async (e) =>{
     e.preventDefault()
 
@@ -57,7 +63,7 @@ const NewProduct = () => {
 
         <Form.Group className="" >
               <Form.Label>Category</Form.Label>
-              <Form.Select name="role" onChange={handleOnChange} required={true}>
+              <Form.Select name="category" onChange={handleOnChange} required={true}>
                 <option value="">-- Select Category --</option>
 
             {category.map((item) => (
@@ -71,6 +77,20 @@ const NewProduct = () => {
             {productInput.map((item, i) => (
             <CustomInput key ={i} {...item} onChange={handleOnChange} />
           ))}
+
+<Form.Group className="mb-2">
+            <Form.Control
+              type="file"
+              name="image"
+              multiple
+              onChange={handleOnImageChange}
+              
+            />
+          </Form.Group>
+
+          <div className="d-grid">  
+          <Button variant='primary' type='subit'>Add Product</Button>
+          </div>
 
             </Form>
 
