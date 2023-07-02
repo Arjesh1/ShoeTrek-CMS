@@ -44,7 +44,12 @@ const CategoryTable = () => {
             <tr key={item}>
             <td>{i + 1}</td>
             <td>{item.name}</td>
-            <td>{item.status}</td>
+            {item.status === "Active"? (
+              <td ><span className='bg-success p-1 pe-2 ps-2 rounded text-white'>{item.status}</span></td>
+            ):(
+              <td ><span className='bg-danger p-1 pe-2 ps-2 rounded text-white'>{item.status}</span></td>
+            )}
+            
             <td className=''><Button variant='warning' onClick={()=>{handleOnEdit(item)}} >Edit</Button></td>
           </tr>
 

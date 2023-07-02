@@ -83,11 +83,19 @@ export const userRegisterInput = [
       placeholder: "250",
       required: true,
     },
+
+    {
+      label: " Price",
+      name: "price",
+      type: "number",
+      placeholder: "$200",
+      required: true,
+    },
     {
       label: "Sales Price",
       name: "salesPrice",
       type: "number",
-      placeholder: "$250",
+      placeholder: "$150",
       required: true,
     },
     {
@@ -108,7 +116,9 @@ export const userRegisterInput = [
       label: "Description",
       name: "description",
       type: "text",
-      placeholder: "good nike sjkadbaskl",
+      placeholder: "Details about the product.",
+      rows: "3",
+      as: "textarea",
       required: true,
     },
 

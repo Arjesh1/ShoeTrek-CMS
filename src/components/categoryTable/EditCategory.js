@@ -47,8 +47,8 @@ const EditCategory = ({editCat}) => {
         <Form.Label>Status</Form.Label>
                 <Form.Select name='status' value={form.status} onChange={handleOnChange}>
                 <option value="">--Select--</option>
-                <option value="active">Active</option>
-                <option value="inactive">Inactive</option>
+                <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
                 </Form.Select>
                 
               </Form.Group>

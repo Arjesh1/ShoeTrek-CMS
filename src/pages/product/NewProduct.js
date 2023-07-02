@@ -78,7 +78,7 @@ const NewProduct = () => {
             <CustomInput key ={i} {...item} onChange={handleOnChange} />
           ))}
 
-<Form.Group className="mb-2">
+<Form.Group className="mb-4">
             <Form.Control
               type="file"
               name="image"
