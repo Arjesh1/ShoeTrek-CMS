@@ -7,9 +7,10 @@ import { getCategoriesAction } from '../category/CategoryAction'
 import { productInput } from '../../components/assets/inputFieldList'
 import { CustomInput } from '../../components/custominput/CustomInput'
 
+const initialState = { status: "inactive", price: 0, name: "" };
 const NewProduct = () => {
   const dispatch = useDispatch()
-  const [form, setForm] = useState([])
+  const [form, setForm] = useState(initialState)
   const {category} = useSelector(state => state.cat)
 
 
@@ -21,10 +22,17 @@ const NewProduct = () => {
 
 
   const handleOnChange = (e)=>{
-    const {name, value} = e.target
+    let {name, value, checked  } = e.target
+    if (name === "status") {
+      value = checked ? "active" : "inactive";
+    }
+
+
     setForm({
       ...form,
       [ name ]:value,
+
+      
       
     })
   }
@@ -61,9 +69,19 @@ const NewProduct = () => {
 
         <Form className="shadow-lg p-5 " onSubmit={handleOnSubmit}>
 
+        <Form.Group className="mt-5">
+            <Form.Check 
+              type="switch"
+              id="custom-switch"
+              label="Status"
+              name="status"
+              onChange={handleOnChange}
+            />
+          </Form.Group>
+
         <Form.Group className="" >
               <Form.Label>Category</Form.Label>
-              <Form.Select name="category" onChange={handleOnChange} required={true}>
+              <Form.Select name="parentCat" onChange={handleOnChange} required={true}>
                 <option value="">-- Select Category --</option>
 
             {category.map((item) => (
