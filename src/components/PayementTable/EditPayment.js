@@ -67,6 +67,11 @@ const EditPayment = ({editPayOpt}) => {
                       }
                     );
           }
+          else {
+            dispatch(addPaymentOptionAction({ ...form }))
+          }
+
+          
           
           
         }
@@ -101,8 +106,8 @@ const EditPayment = ({editPayOpt}) => {
                  value={form.status} 
                  onChange={handleOnChange}>
                 <option value="">--Select--</option>
-                <option value="active">Active</option>
-                <option value="inactive">Inactive</option>
+                <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
                 </Form.Select>
                 
               </Form.Group>
@@ -111,15 +116,14 @@ const EditPayment = ({editPayOpt}) => {
               <Form.Label>Name</Form.Label>
               <Form.Control type="text"  name='name' 
               value={form.name}
-               required={true} onChange={handleOnChange} />
+              onChange={handleOnChange} />
             </Form.Group>
 
             <Form.Group className="mb-3" >
         <Form.Label>Image</Form.Label>
         <div className='mt-2 mb-2'>
         <img className='payment_image' src={form.thumbnail} alt='logo'/>
-        </div>
-        
+        </div> 
         <Form.Control type="file"  name='image'  onChange={handleOnImageChange} />
       </Form.Group>
         
@@ -131,7 +135,7 @@ const EditPayment = ({editPayOpt}) => {
 
                   <div className='d-grid'>
 
-                  <ProgressBar className='mt-1' striped variant="success" now={progress} />
+                  <ProgressBar className='mt-1 bg-body' striped variant="success" now={progress} />
 
                   </div>
 

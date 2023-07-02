@@ -42,8 +42,6 @@ const Payment = () => {
    
    // upload image to storage and get the link and mount to the payment options
 
-   console.log(image);
-
   if (image) {
     const storegeRef = ref(
           storage,
@@ -70,6 +68,9 @@ const Payment = () => {
                 getDownloadURL(uploadImg.snapshot.ref).then((url) => {
                   
                   dispatch(addPaymentOptionAction({ ...form, slug, thumbnail: url }));
+
+                  
+                  setForm([])
                   
                  
                 });
@@ -108,8 +109,8 @@ const Payment = () => {
   <Form.Label>Status</Form.Label>
           <Form.Select name='status' required={true} onChange={handleOnChange}>
           <option value="">--Select--</option>
-          <option value="active">Active</option>
-          <option value="inactive">Inactive</option>
+          <option value="Active">Active</option>
+          <option value="Inactive">Inactive</option>
           </Form.Select>
           
         </Form.Group>
@@ -134,7 +135,7 @@ const Payment = () => {
   <Col lg={2}><div className='d-grid '>
   <Form.Label className='text-light'>.</Form.Label>
             <Button type='submit'>Add</Button>
-            <ProgressBar className='mt-1' striped variant="success" now={progress} />
+            <ProgressBar className='mt-1 bg-body' striped variant="success"  now={progress} />
 
 
           </div></Col>

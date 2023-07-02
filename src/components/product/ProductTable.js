@@ -13,12 +13,10 @@ const ProductTable = () => {
           <th>Quantity</th>
           <th>Category</th>
           <th>Status</th>
-          <th>Action</th>
           <th>Sales Price</th>
           <th>Sales Starts</th>
           <th>Sales End</th>
           <th>Description</th>
-          <th>Status</th>
           <th>Action</th>
         </tr>
       </thead>
@@ -29,8 +27,6 @@ const ProductTable = () => {
           <td>Otto</td>
           <td>@mdo</td>
           <td>Otto</td>
-          <td>@mdo</td>
-          <td>@mdo</td>
           <td>Otto</td>
           <td>@mdo</td>
           <td>@mdo</td>

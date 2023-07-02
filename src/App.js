@@ -57,7 +57,7 @@ onAuthStateChanged(auth, (userData) =>{
         <Product/>
         </PrivateRoute>
         }/>
-         <Route path='add-product' element={
+         <Route path='product/add-product' element={
           <PrivateRoute>
         <NewProduct/>
         </PrivateRoute>

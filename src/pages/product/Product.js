@@ -12,10 +12,10 @@ const Product = () => {
         <div className='fs-3 text-center fw-bold'>Products</div>
         <hr/>
         <div className='d-flex justify-content-end'>
-         <Link to="/add-product"> <Button className='text-end'>+ Add Products</Button></Link>
+         <Link to="/product/add-product"> <Button className='text-end'>+ Add Products</Button></Link>
         </div>
         
-        <hr/>
+      
         <div>
           
 

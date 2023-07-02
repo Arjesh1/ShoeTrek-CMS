@@ -68,4 +68,51 @@ export const userRegisterInput = [
    
   ];
 
+  export const productInput= [
+    {
+      label: "Name",
+      name: "name",
+      type: "test",
+      placeholder: "Nike Air Force",
+      required: true,
+    },
+    {
+      label: "Quantity",
+      name: "quantity",
+      type: "number",
+      placeholder: "250",
+      required: true,
+    },
+    {
+      label: "Sales Price",
+      name: "salesPrice",
+      type: "number",
+      placeholder: "$250",
+      required: true,
+    },
+    {
+      label: "Sale Starts",
+      name: "saleStarts",
+      type: "date",
+      placeholder: "1/12/2023",
+      
+    },
+    {
+      label: "Sale Ends",
+      name: "saleEnds",
+      type: "date",
+      placeholder: "1/12/2024",
+      
+    },
+    {
+      label: "Description",
+      name: "description",
+      type: "text",
+      placeholder: "good nike sjkadbaskl",
+      required: true,
+    },
+
+
+  ]
+
   
