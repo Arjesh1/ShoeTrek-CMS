@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getCategoriesAction } from '../category/CategoryAction'
 import { productInput } from '../../components/assets/inputFieldList'
 import { CustomInput } from '../../components/custominput/CustomInput'
+import slugify from 'slugify'
 
 const initialState = { status: "inactive", price: 0, name: "" };
 const NewProduct = () => {
@@ -46,7 +47,12 @@ const NewProduct = () => {
   const handleOnSubmit = async (e) =>{
     e.preventDefault()
 
-    console.log(form);
+    const slug = slugify(form.name, {
+      trim:true,
+      lower:true
+    })
+
+    console.log(form, slug);
   }
 
 
