@@ -12,6 +12,7 @@ const initialState = { status: "inactive", price: 0, name: "" };
 const NewProduct = () => {
   const dispatch = useDispatch()
   const [form, setForm] = useState(initialState)
+  const [images, setImages] = useState()
   const {category} = useSelector(state => state.cat)
 
 
@@ -41,7 +42,9 @@ const NewProduct = () => {
   const handleOnImageChange = (e) =>{
     const {name, files} = e.target
 
-    console.log(name, files);
+    setImages(files)
+
+    
   }
 
   const handleOnSubmit = async (e) =>{
@@ -52,7 +55,8 @@ const NewProduct = () => {
       lower:true
     })
 
-    console.log(form, slug);
+    console.log(form, slug, images );
+    
   }
 
 

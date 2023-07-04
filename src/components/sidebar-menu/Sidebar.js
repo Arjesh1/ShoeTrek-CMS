@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 export const SidebarMenu = () => {
   return (
     <div>
-      <div className="top fs-3 text-center ">Admin CMS</div>
+      <div className="top pt-2 fs-5 text-center ">Admin CMS</div>
       <hr />
       <div className="list ">
-        <ul className="list-unstyled fw-bolder fs-6 d-flex flex-column gap-3 sidebar-menu">
+        <ul className="list-unstyled fw-bolder  d-flex flex-column gap-3 sidebar-menu">
           <li>
             <Link to="/dashboard" className="nav-link">
               Dashboard

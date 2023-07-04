@@ -27,7 +27,7 @@ const Header = () => {
 
   return (
    
-        <Navbar bg="dark" variant="dark" expand="lg">
+        <Navbar bg="body" variant="light" expand="lg" className='border-bottom border-dark'>
       <Container>
         <Navbar.Brand href="#home">Shoe CMS</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -38,8 +38,8 @@ const Header = () => {
             <>
 
           <Link className='nav-link' to="/dashboard">Dashboard</Link>
-          <Link className='nav-link'  disabled={true}><p className='text-light'>{user.fName+ " " + user.lName}</p></Link>
-          <Link className='nav-link'><Button variant="light" className='rounded-pill' onClick={handleOnLogOut}>Log Out</Button></Link>
+          <Link className='nav-link'  disabled={true}><p className='text-dark'>{user.fName+ " " + user.lName}</p></Link>
+          <Link className='nav-link'><Button variant="dark" className='rounded-pill' onClick={handleOnLogOut}>Log Out</Button></Link>
           </>
 
           ):(

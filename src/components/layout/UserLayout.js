@@ -18,8 +18,8 @@ const UserLayout = ({children}) => {
       <Container fluid>
         <Row>
           <Col  xs={2}
-              className="bg-dark text-light ps-4 pt-1"
-              style={{ minHeight: "82vh", minWidth: "150px" }}>
+              className="bg-dark text-light ps-3 pt-1"
+              style={{ minHeight: "82vh", width: "175px" }}>
                 <SidebarMenu/>
               </Col>
               <Col style={{ overflowX: "scroll" }}>{children}</Col>
