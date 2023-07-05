@@ -3,6 +3,7 @@ import adminReducer from './pages/user_Redux/userSlice'
 import categoryReducer from './pages/category/categotySlice'
 import systemReducer from './system/systemSlice'
 import paymentReducer from './pages/payment-option/paymentSlice'
+import productReducer from './pages/product/productSlice'
 
 
 export default configureStore({
@@ -11,6 +12,7 @@ export default configureStore({
         cat: categoryReducer,
         system: systemReducer, 
         payOption: paymentReducer,
+        product: productReducer,
         
     }
 })

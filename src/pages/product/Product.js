@@ -1,10 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import UserLayout from '../../components/layout/UserLayout'
 import { Button } from 'react-bootstrap'
 import ProductTable from '../../components/product/ProductTable'
 import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { getProductsAction } from './ProductAction'
 
 const Product = () => {
+
+  const dispatch = useDispatch()
+
+
+  useEffect(()=>{
+    dispatch(getProductsAction())
+    
+  }, [dispatch])
+
   return (
     <div>
       

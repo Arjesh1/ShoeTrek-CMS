@@ -7,6 +7,7 @@ import { getCategoriesAction } from '../category/CategoryAction'
 import { productInput } from '../../components/assets/inputFieldList'
 import { CustomInput } from '../../components/custominput/CustomInput'
 import slugify from 'slugify'
+import { addProductAction } from './ProductAction'
 
 const initialState = { status: "inactive", price: 0, name: "" };
 const NewProduct = () => {
@@ -55,7 +56,7 @@ const NewProduct = () => {
       lower:true
     })
 
-    console.log(form, slug, images );
+    dispatch(addProductAction({...form, slug}))
     
   }
 
