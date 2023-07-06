@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import UserLayout from '../../components/layout/UserLayout'
 import { Link, useParams } from 'react-router-dom'
-import { Button, Form } from 'react-bootstrap'
+import { Button, Form, ProgressBar } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { getCategoriesAction } from '../category/CategoryAction'
 import { CustomInput } from '../../components/custominput/CustomInput'
-import { addProductAction, getSelectedProductsAction } from './ProductAction'
+import { addProductAction, deleteProductAction, getSelectedProductsAction } from './ProductAction'
+import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
+import { storage } from '../../config/firebase-config'
 
 const initialState = { status: "inactive", price: 0, name: "" };
 const EditProduct = () => {
   const dispatch = useDispatch()
   const {id} = useParams()
   const [form, setForm] = useState(initialState)
-  const [images, setImages] = useState()
+  const [images, setImages] = useState([])
+  const [progress, setProgress] = useState(0);
   const [imageToDelete, setImageToDelete] = useState([])
   const {category} = useSelector(state => state.cat)
   const {selectedProduct} = useSelector(state => state.product)
@@ -133,8 +136,67 @@ const EditProduct = () => {
     const updatedImgList = imgUrlList.filter(img => !imageToDelete.includes(img)
     );
     dispatch(addProductAction({...rest, slug:id, imgUrlList:updatedImgList}))
+
+    // to add more images incomplete to complete.
+
+    // if(images.length){
+    //   const img = images.map((image) => {
+    //     return new Promise((resolve, reject) =>{
+    //       const  storageRef = ref(
+    //         storage,
+    //         `/product/images/${Date.now()}-${image.name}`
+
+    //       )
+
+    //       const uploadImg = uploadBytesResumable(storageRef, image)
+
+    //       uploadImg.on(
+    //         "state_changed",
+    //         (snapShot) =>{
+    //           const percentage = (snapShot.bytesTransferred/ snapShot.totalBytes) * 100
+    //           setProgress(percentage)
+    //         },
+    //         (error) =>{
+    //           console.log(error);
+    //         },
+    //         async() =>{
+    //           await getDownloadURL(uploadImg.snapshot.ref).then((url)=>{
+    //             console.log(url);
+    //             resolve(url)
+
+    //           })
+
+
+    //         }
+    //       )
+    //     })
+    //   })
+    
+    //   const newimgUrlList = await Promise.all(img)
+
+    //     const imgUrlList = [...updatedImgList, ...newimgUrlList];
+
+    //   console.log(imgUrlList);
+
+    //   // dispatch(addProductAction({...form, slug:id, imgUrlList, }))
+      
+    // }
     
   }
+
+    const handleOnDelete = () =>{
+      const slug = form.id
+      if (window.confirm("Are you sure you want to deleted this product?")) {
+        dispatch(deleteProductAction({slug}));
+      }
+
+      
+    }
+
+    
+  
+
+
 
   return (
     <div>
@@ -208,8 +270,10 @@ const EditProduct = () => {
           <Button variant='warning' type='submit'>Update Product</Button>
           </div>
 
+          <ProgressBar className='mt-1 bg-body' striped variant="success"  now={progress} />
+
           <div className="d-grid mt-3">  
-          <Button variant='danger' >Delete Product</Button>
+          <Button variant='danger' onClick={handleOnDelete}>Delete Product</Button>
           </div>
 
             </Form>

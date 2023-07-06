@@ -1,4 +1,4 @@
-import { collection, doc, getDoc, getDocs, query, setDoc } from "firebase/firestore"
+import { collection, deleteDoc, doc, getDoc, getDocs, query, setDoc } from "firebase/firestore"
 import { db } from "../../config/firebase-config"
 import { toast } from "react-toastify"
 import { setProdu, setSelectedProduct } from "./productSlice"
@@ -36,11 +36,11 @@ export const getSelectedProductsAction = (slug) => async(dispatch) =>{
 
     try {
 
-        if(!slug){
-            return(
-                toast.error("Slug not found.")
-            )
-        }
+        // if(!slug){
+        //     return(
+        //         toast.error("Slug not found.")
+        //     )
+        // }
 
         const selectedProdRef = doc(db, "product", slug)
         const selectedProdSnap = await getDoc(selectedProdRef)
@@ -80,3 +80,22 @@ export const addProductAction = ({slug, ...rest}) => async (dispatch) => {
     }
   
 }
+
+//delete product 
+
+export const deleteProductAction = ({slug}) => async (dispatch) => {
+    
+    try {
+      await deleteDoc(doc(db, "product", slug));
+  
+      toast.success("Payment option has been deleted.");
+      dispatch(getSelectedProductsAction());
+      
+    } catch (error) {
+      //log the error
+      console.log(error);
+      toast.error(
+        "Something went wrong, we could not process your request at the moment, please try again later."
+      );
+    }
+  };
