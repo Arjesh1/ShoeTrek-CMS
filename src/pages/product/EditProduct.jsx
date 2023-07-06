@@ -5,7 +5,6 @@ import { Button, Form } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { getCategoriesAction } from '../category/CategoryAction'
 import { CustomInput } from '../../components/custominput/CustomInput'
-import slugify from 'slugify'
 import { addProductAction, getSelectedProductsAction } from './ProductAction'
 
 const initialState = { status: "inactive", price: 0, name: "" };
@@ -22,9 +21,9 @@ const EditProduct = () => {
     !category.length && dispatch(getCategoriesAction());
     form.id !== id && dispatch(getSelectedProductsAction(id));
     selectedProduct.id !== form.id && setForm(selectedProduct);
-  }, [dispatch, id, selectedProduct, form.id]);
+  }, [dispatch, id, selectedProduct, form.id, category.length]);
 
-  console.log(selectedProduct);
+
 
 
   const productInput= [
@@ -87,8 +86,6 @@ const EditProduct = () => {
       required: true,
       value: form.description
     },
-
-
   ]
 
 
@@ -96,7 +93,7 @@ const EditProduct = () => {
   const handleOnChange = (e)=>{
     let {name, value, checked  } = e.target
     if (name === "status") {
-      value = checked ? "active" : "inactive";
+      value = checked ? "Active" : "Inactive";
     }
     setForm({
       ...form,
@@ -117,20 +114,10 @@ const EditProduct = () => {
 
   const handleOnSubmit = async (e) =>{
     e.preventDefault()
-
-    const slug = selectedProduct.slug
-
-    console.log(form, slug);
-
-    // dispatch(addProductAction({...form, slug}))
+    const {id, ...rest} = form
+    dispatch(addProductAction({...rest, slug:id}))
     
   }
-
-
-
-
-
-
 
   return (
     <div>
@@ -153,13 +140,13 @@ const EditProduct = () => {
               label="Status"
               name="status"
               onChange={handleOnChange}
-              checked={form.status === "active"}
+              checked={form.status === "Active"}
             />
           </Form.Group>
 
         <Form.Group className="" >
               <Form.Label>Category</Form.Label>
-              <Form.Select name="parentCat" onChange={handleOnChange} required={true} value={selectedProduct.parentCat}>
+              <Form.Select name="parentCat" onChange={handleOnChange} required={true} value={form.parentCat}>
                 <option value="">-- Select Category --</option>
 
             {category.map((item) => (
@@ -185,7 +172,7 @@ const EditProduct = () => {
           </Form.Group>
 
           <div className="d-grid">  
-          <Button variant='primary' type='subit'>Add Product</Button>
+          <Button variant='primary' type='subit'>Update Product</Button>
           </div>
 
             </Form>

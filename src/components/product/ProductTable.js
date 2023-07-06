@@ -11,7 +11,7 @@ const {product} = useSelector(state => state.product)
 
  useEffect(()=>{
   dispatch(getProductsAction())
- })
+ }, [dispatch])
 
 
   return (
@@ -39,7 +39,11 @@ const {product} = useSelector(state => state.product)
           <td>{i + 1}</td>
           <td>Mark</td>
           <td>{item.name}</td>
-          <td>{item.status}</td>
+          {item.status === "Active"? (
+              <td ><span className='bg-success p-1 pe-2 ps-2 rounded text-white'>{item.status}</span></td>
+            ):(
+              <td ><span className='bg-danger p-1 pe-2 ps-2 rounded text-white'>{item.status}</span></td>
+            )}
           <td>{item.quantity}</td>
           <td>{item.parentCat}</td>
           <td>{item.price}</td>

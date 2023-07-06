@@ -3,18 +3,8 @@ import UserLayout from '../../components/layout/UserLayout'
 import { Button } from 'react-bootstrap'
 import ProductTable from '../../components/product/ProductTable'
 import { Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
-import { getProductsAction } from './ProductAction'
 
 const Product = () => {
-
-  const dispatch = useDispatch()
-
-
-  useEffect(()=>{
-    dispatch(getProductsAction())
-    
-  }, [dispatch])
 
   return (
     <div>
@@ -25,11 +15,7 @@ const Product = () => {
         <div className='d-flex justify-content-end'>
          <Link to="/product/add-product"> <Button className='text-end'>+ Add Products</Button></Link>
         </div>
-        
-      
         <div>
-          
-
         </div>
 
         <div className='mt-4'>
