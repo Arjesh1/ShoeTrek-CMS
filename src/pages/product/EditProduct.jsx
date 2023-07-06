@@ -131,7 +131,7 @@ const EditProduct = () => {
          <div className='fs-3 text-center fw-bold'>Edit Products</div>
         <hr/>
 
-        <Form className="shadow-lg p-5 " onSubmit={handleOnSubmit}>
+        <Form className="shadow-lg p-5 pt-1 " onSubmit={handleOnSubmit}>
 
         <Form.Group className="mt-5">
             <Form.Check 
@@ -172,7 +172,11 @@ const EditProduct = () => {
           </Form.Group>
 
           <div className="d-grid">  
-          <Button variant='primary' type='subit'>Update Product</Button>
+          <Button variant='warning' type='submit'>Update Product</Button>
+          </div>
+
+          <div className="d-grid mt-3">  
+          <Button variant='danger' >Delete Product</Button>
           </div>
 
             </Form>

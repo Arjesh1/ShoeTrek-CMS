@@ -1,20 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import UserLayout from '../../components/layout/UserLayout'
 import { Link } from 'react-router-dom'
-import { Button, Form } from 'react-bootstrap'
+import { Button, Form, ProgressBar } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { getCategoriesAction } from '../category/CategoryAction'
 import { productInput } from '../../components/assets/inputFieldList'
 import { CustomInput } from '../../components/custominput/CustomInput'
 import slugify from 'slugify'
 import { addProductAction } from './ProductAction'
+import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
+import { storage } from '../../config/firebase-config'
 
 const initialState = { status: "inactive", price: 0, name: "" };
 const NewProduct = () => {
   const dispatch = useDispatch()
   const [form, setForm] = useState(initialState)
   const [images, setImages] = useState()
+  const [progress, setProgress] = useState(0);
   const {category} = useSelector(state => state.cat)
+
 
 
   useEffect(()=>{
@@ -40,10 +44,10 @@ const NewProduct = () => {
     })
   }
 
-  const handleOnImageChange = (e) =>{
+  const handleOnImageChange = async(e) =>{
     const {name, files} = e.target
-
-    setImages(files)
+    setImages([...files])
+    
 
     
   }
@@ -56,9 +60,49 @@ const NewProduct = () => {
       lower:true
     })
 
-    dispatch(addProductAction({...form, slug}))
+    if(images.length){
+      const img = images.map((image) => {
+        return new Promise((resolve, reject) =>{
+          const  storageRef = ref(
+            storage,
+            `/product/images/${Date.now()}-${image.name}`
+
+          )
+
+          const uploadImg = uploadBytesResumable(storageRef, image)
+
+          uploadImg.on(
+            "state_changed",
+            (snapShot) =>{
+              const percentage = (snapShot.bytesTransferred/ snapShot.totalBytes) * 100
+              setProgress(percentage)
+            },
+            (error) =>{
+              console.log(error);
+            },
+            async() =>{
+              await getDownloadURL(uploadImg.snapshot.ref).then((url)=>{
+                console.log(url);
+                resolve(url)
+
+              })
+
+
+            }
+          )
+        })
+      })
+    
+      const imgUrlList = await Promise.all(img)
+      dispatch(addProductAction({...form, slug, imgUrlList, thumbnail:imgUrlList[0]}))
+      
+    }
+
+    
     
   }
+
+
 
 
 
@@ -120,6 +164,8 @@ const NewProduct = () => {
           <div className="d-grid">  
           <Button variant='primary' type='subit'>Add Product</Button>
           </div>
+
+          <ProgressBar className='mt-1 bg-body' striped variant="success"  now={progress} />
 
             </Form>
 

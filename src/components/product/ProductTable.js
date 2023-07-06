@@ -37,7 +37,7 @@ const {product} = useSelector(state => state.product)
         {product.map((item, i)=>(
         <tr key={item}>
           <td>{i + 1}</td>
-          <td>Mark</td>
+          <td><img src={item.thumbnail} alt="" width={"100px"} /></td>
           <td>{item.name}</td>
           {item.status === "Active"? (
               <td ><span className='bg-success p-1 pe-2 ps-2 rounded text-white'>{item.status}</span></td>

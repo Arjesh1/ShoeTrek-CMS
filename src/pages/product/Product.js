@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import UserLayout from '../../components/layout/UserLayout'
-import { Button } from 'react-bootstrap'
+import { Button, Col, Row } from 'react-bootstrap'
 import ProductTable from '../../components/product/ProductTable'
 import { Link } from 'react-router-dom'
 
@@ -10,13 +10,19 @@ const Product = () => {
     <div>
       
       <UserLayout>
-        <div className='fs-3 text-center fw-bold'>Products</div>
-        <hr/>
-        <div className='d-flex justify-content-end'>
+        <Row className='mt-1'>
+          <Col> <div className='fs-3 text-end fw-bold'>Products</div></Col>
+          <Col><div className='d-flex justify-content-end mt-1'>
          <Link to="/product/add-product"> <Button className='text-end'>+ Add Products</Button></Link>
         </div>
-        <div>
-        </div>
+        </Col>
+       
+        
+        </Row>
+        
+        <hr/>
+       
+        
 
         <div className='mt-4'>
           <ProductTable/>
