@@ -13,6 +13,7 @@ const EditProduct = () => {
   const {id} = useParams()
   const [form, setForm] = useState(initialState)
   const [images, setImages] = useState()
+  const [imageToDelete, setImageToDelete] = useState([])
   const {category} = useSelector(state => state.cat)
   const {selectedProduct} = useSelector(state => state.product)
 
@@ -112,10 +113,26 @@ const EditProduct = () => {
     
   }
 
+  const handleOnImageDelete = (e) => {
+    const{checked, value} = e.target
+    
+    if(checked){
+      setImageToDelete([...imageToDelete, value])
+    } else{
+      const filterImg = imageToDelete.filter((img) => img !== value)
+      setImageToDelete(filterImg)
+    }
+
+  }
+
+  
+
   const handleOnSubmit = async (e) =>{
     e.preventDefault()
-    const {id, ...rest} = form
-    dispatch(addProductAction({...rest, slug:id}))
+    const {id, imgUrlList, ...rest} = form
+    const updatedImgList = imgUrlList.filter(img => !imageToDelete.includes(img)
+    );
+    dispatch(addProductAction({...rest, slug:id, imgUrlList:updatedImgList}))
     
   }
 
@@ -160,6 +177,22 @@ const EditProduct = () => {
             {productInput.map((item, i) => (
             <CustomInput key ={i} {...item} onChange={handleOnChange} />
           ))}
+
+          <div className="py-3 d-flex flex-wrap gap-2">
+            {selectedProduct?.imgUrlList?.map((img) =>(
+              <div key={img} className='img-thumbnail'> 
+              <div className='d-flex justify-content-center gap-1'>
+              <Form.Check type='radio' name='thumbnail' checked={img === form.thumbnail} onChange={handleOnChange} value={img}/>
+              <label className='ms-1'>Thumbnail</label>
+              </div> 
+              <img src={img} alt="" width="150px" />
+              <div>
+                <Form.Check name='delete' label="Delete" value={img} onChange={handleOnImageDelete}/>
+              </div>
+              </div>
+              ))}
+          
+          </div>
 
 <Form.Group className="mb-4">
             <Form.Control
