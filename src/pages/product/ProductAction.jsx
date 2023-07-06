@@ -36,11 +36,11 @@ export const getSelectedProductsAction = (slug) => async(dispatch) =>{
 
     try {
 
-        // if(!slug){
-        //     return(
-        //         toast.error("Slug not found.")
-        //     )
-        // }
+        if(!slug){
+            return(
+                toast.error("Slug not found.")
+            )
+        }
 
         const selectedProdRef = doc(db, "product", slug)
         const selectedProdSnap = await getDoc(selectedProdRef)
@@ -89,7 +89,7 @@ export const deleteProductAction = ({slug}) => async (dispatch) => {
       await deleteDoc(doc(db, "product", slug));
   
       toast.success("Payment option has been deleted.");
-      dispatch(getSelectedProductsAction());
+      dispatch(getProductsAction());
       
     } catch (error) {
       //log the error
