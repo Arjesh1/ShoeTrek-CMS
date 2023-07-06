@@ -19,6 +19,7 @@ import { getUserAction } from './pages/user_Redux/userAction';
 import { PrivateRoute } from './privateRoute/PrivateRoute';
 import Payment from './pages/payment-option/Payment';
 import NewProduct from './pages/product/NewProduct';
+import EditProduct from './pages/product/EditProduct';
 
 
 function App() {
@@ -60,6 +61,11 @@ onAuthStateChanged(auth, (userData) =>{
          <Route path='product/add-product' element={
           <PrivateRoute>
         <NewProduct/>
+        </PrivateRoute>
+        }/>
+         <Route path='product/:id' element={
+          <PrivateRoute>
+        <EditProduct/>
         </PrivateRoute>
         }/>
         <Route path='payment-option' element={

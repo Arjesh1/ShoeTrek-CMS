@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { Button, Table } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProductsAction } from '../../pages/product/ProductAction'
+import { Link } from 'react-router-dom'
 
 const ProductTable = () => {
  const dispatch = useDispatch()
@@ -46,7 +47,11 @@ const {product} = useSelector(state => state.product)
           <td>{item.saleStarts}</td>
           <td>{item.saleEnds}</td>
           <td>{item.description}</td>
-          <td><Button variant='warning'>Edit</Button></td>
+          <td>
+            <Link to  = {`/product/${item.slug}`}>
+            <Button variant='warning'>Edit</Button>
+            </Link>
+            </td>
         </tr>
          ))}
         

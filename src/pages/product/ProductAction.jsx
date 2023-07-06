@@ -1,7 +1,7 @@
-import { collection, doc, getDocs, query, setDoc } from "firebase/firestore"
+import { collection, doc, getDoc, getDocs, query, setDoc } from "firebase/firestore"
 import { db } from "../../config/firebase-config"
 import { toast } from "react-toastify"
-import { setProdu } from "./productSlice"
+import { setProdu, setSelectedProduct } from "./productSlice"
 
 //get all the category from firebase
 export const getProductsAction = () => async(dispatch) =>{
@@ -29,6 +29,33 @@ export const getProductsAction = () => async(dispatch) =>{
 
 
 }
+
+// get selected product
+
+export const getSelectedProductsAction = (slug) => async(dispatch) =>{
+
+    try {
+
+        if(!slug){
+            return(
+                toast.error("Slug not found.")
+            )
+        }
+
+        const selectedProdRef = doc(db, "product", slug)
+        const selectedProdSnap = await getDoc(selectedProdRef)
+
+        if (selectedProdSnap.exists()) {
+           const selectedprod = selectedProdSnap.data()
+           dispatch(setSelectedProduct({...selectedprod, id: slug}))
+          } 
+
+        
+    } catch (error) {
+        toast.error(error.message)
+    }
+}
+
 
 // add product to firebase
 export const addProductAction = ({slug, ...rest}) => async (dispatch) => {
