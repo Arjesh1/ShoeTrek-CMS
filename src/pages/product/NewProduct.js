@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import UserLayout from '../../components/layout/UserLayout'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Button, Form, ProgressBar } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { getCategoriesAction } from '../category/CategoryAction'
@@ -14,6 +14,7 @@ import { storage } from '../../config/firebase-config'
 const initialState = { status: "inactive", price: 0, name: "" };
 const NewProduct = () => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const [form, setForm] = useState(initialState)
   const [images, setImages] = useState()
   const [progress, setProgress] = useState(0);
@@ -97,6 +98,8 @@ const NewProduct = () => {
       dispatch(addProductAction({...form, slug, imgUrlList, thumbnail:imgUrlList[0]}))
       
     }
+
+    navigate("/product")
 
     
     

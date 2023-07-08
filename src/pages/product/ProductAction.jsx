@@ -2,6 +2,7 @@ import { collection, deleteDoc, doc, getDoc, getDocs, query, setDoc } from "fire
 import { db } from "../../config/firebase-config"
 import { toast } from "react-toastify"
 import { setProdu, setSelectedProduct } from "./productSlice"
+import { Navigate } from "react-router-dom"
 
 //get all the category from firebase
 export const getProductsAction = () => async(dispatch) =>{
@@ -70,6 +71,7 @@ export const addProductAction = ({slug, ...rest}) => async (dispatch) => {
 
         //fetch all the category and mount in redux
         await promise
+        
 
     
         
@@ -88,7 +90,7 @@ export const deleteProductAction = ({slug}) => async (dispatch) => {
     try {
       await deleteDoc(doc(db, "product", slug));
   
-      toast.success("Payment option has been deleted.");
+      toast.success("Product has been deleted.");
       dispatch(getProductsAction());
       
     } catch (error) {

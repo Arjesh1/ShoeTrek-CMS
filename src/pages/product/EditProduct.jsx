@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import UserLayout from '../../components/layout/UserLayout'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { Button, Form, ProgressBar } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { getCategoriesAction } from '../category/CategoryAction'
@@ -12,6 +12,7 @@ import { storage } from '../../config/firebase-config'
 const initialState = { status: "inactive", price: 0, name: "" };
 const EditProduct = () => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const {id} = useParams()
   const [form, setForm] = useState(initialState)
   const [images, setImages] = useState([])
@@ -136,6 +137,9 @@ const EditProduct = () => {
     const updatedImgList = imgUrlList.filter(img => !imageToDelete.includes(img)
     );
     dispatch(addProductAction({...rest, slug:id, imgUrlList:updatedImgList}))
+
+    navigate("/product")
+    
 
     // to add more images incomplete to complete.
 
