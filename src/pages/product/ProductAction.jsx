@@ -32,15 +32,20 @@ export const getProductsAction = () => async(dispatch) =>{
 }
 
 //get all the category from firebase
-export const getProductByCategoryAction = async(parentCat) =>{
-    alert(parentCat)
+export const getProductByCategoryAction = (parentCat) => async(dispatch)=>{
+    
     try {
 
         const q = query(collection(db, "product"), where ("parentCat", "==", parentCat))
         const productSnap = await getDocs(q)
-        console.log(productSnap);
-        
 
+        //check for products
+       if(productSnap?.size > 0){
+        return toast.warning(`There are ${productSnap.size} products in this category. Please reasign those products to other categorioes before deleting.`)
+       }
+
+       // delete category
+        
 
     } catch (error) {
         toast.error(error.message)
