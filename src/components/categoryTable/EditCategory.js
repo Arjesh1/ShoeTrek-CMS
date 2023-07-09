@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Button, Form } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
 import { addCategoryAction, getCategoriesAction } from '../../pages/category/CategoryAction'
+import { getProductByCategoryAction } from '../../pages/product/ProductAction'
 
 const EditCategory = ({editCat}) => {
     const [form, setForm] = useState([])
@@ -32,6 +33,9 @@ const EditCategory = ({editCat}) => {
       }
 
       const handleOnDelete = () =>{
+        dispatch(getProductByCategoryAction(form.slug))
+
+      
         
       }
 

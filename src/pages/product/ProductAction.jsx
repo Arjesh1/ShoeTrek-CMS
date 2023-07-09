@@ -1,4 +1,4 @@
-import { collection, deleteDoc, doc, getDoc, getDocs, query, setDoc } from "firebase/firestore"
+import { collection, deleteDoc, doc, getDoc, getDocs, query, setDoc, where } from "firebase/firestore"
 import { db } from "../../config/firebase-config"
 import { toast } from "react-toastify"
 import { setProdu, setSelectedProduct } from "./productSlice"
@@ -22,6 +22,25 @@ export const getProductsAction = () => async(dispatch) =>{
           });
 
           dispatch(setProdu(prodList))
+
+    } catch (error) {
+        toast.error(error.message)
+        
+    }
+
+
+}
+
+//get all the category from firebase
+export const getProductByCategoryAction = async(parentCat) =>{
+    alert(parentCat)
+    try {
+
+        const q = query(collection(db, "product"), where ("parentCat", "==", parentCat))
+        const productSnap = await getDocs(q)
+        console.log(productSnap);
+        
+
 
     } catch (error) {
         toast.error(error.message)
