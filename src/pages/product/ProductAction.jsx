@@ -3,6 +3,8 @@ import { db } from "../../config/firebase-config"
 import { toast } from "react-toastify"
 import { setProdu, setSelectedProduct } from "./productSlice"
 import { Navigate } from "react-router-dom"
+import { getCategoriesAction } from "../category/CategoryAction"
+import { setShowModal } from "../../system/systemSlice"
 
 //get all the category from firebase
 export const getProductsAction = () => async(dispatch) =>{
@@ -45,6 +47,12 @@ export const getProductByCategoryAction = (parentCat) => async(dispatch)=>{
        }
 
        // delete category
+
+       await deleteDoc(doc(db, "category", parentCat));
+  
+      toast.success("Category has been deleted.");
+      dispatch(getCategoriesAction());
+      dispatch(setShowModal(false))
         
 
     } catch (error) {
