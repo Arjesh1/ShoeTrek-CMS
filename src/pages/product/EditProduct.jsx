@@ -208,7 +208,7 @@ const EditProduct = () => {
 <UserLayout>
 
          <div className='mt-2'>
-         <Link to="/product"> <Button variant='secondary' className='text-end '><i class="fa-solid fa-circle-arrow-left"></i><span className='ms-1'>Back</span></Button></Link>
+         <Link to="/product"> <Button variant='body' className='text-end fs-6 '><i class="fa-solid fa-angle-left bg-secondary p-2 text-light rounded-circle"></i><span className='ms-1'>Back</span></Button></Link>
          </div>
 
          <div className='fs-3 text-center fw-bold'>Edit Products</div>
