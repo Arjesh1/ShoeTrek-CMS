@@ -8,7 +8,7 @@ export const SidebarMenu = () => {
       <div className="top pt-2 fs-5 text-center ">Admin CMS</div>
       <hr />
       <div className="list ">
-        <ul className="list-unstyled fw-bolder  d-flex flex-column gap-1 sidebar-menu">
+        <ul className="list-unstyled fw-bolder  d-flex flex-column  sidebar-menu">
           <li className="p-1 side-link">
             <Link to="/dashboard" className="nav-link ">
               Dashboard

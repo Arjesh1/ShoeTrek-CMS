@@ -47,9 +47,9 @@ const Register = () => {
 
     
       <UserLayout>
-      <div className='mt-3 pe-5 ps-5'>
+      <div className='mt-3 pe-5 ps-5 pb-4'>
 
-        <h2 className='text-center'>Register Admin</h2>
+        <h3 className='text-center'>Register Admin</h3>
         <hr/>
 
         <Form className="shadow-lg p-5 " onSubmit={handleOnSubmit}>

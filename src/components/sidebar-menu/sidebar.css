@@ -3,3 +3,11 @@
     border-radius: 3px;
 }
 
+.side-link:before {
+    background-color: black ;
+}
+
+.side-link:after {
+    background-color: red ;
+}
+

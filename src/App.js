@@ -41,7 +41,11 @@ onAuthStateChanged(auth, (userData) =>{
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='login' element={<Login/>}/>
-        <Route path='register' element={<Register/>}/>
+
+        <Route path='register' element={
+        <PrivateRoute>
+        <Register/>
+        </PrivateRoute>}/>
 
         <Route path='dashboard' element={
           <PrivateRoute>

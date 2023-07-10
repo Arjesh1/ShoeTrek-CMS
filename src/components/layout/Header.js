@@ -45,8 +45,8 @@ const Header = () => {
           ):(
 
             <>
-            <Link className='nav-link' to="/login"><Button variant="light" className='rounded-pill'>Log In</Button></Link>
-            <Link className='nav-link' to="/register">Register</Link>
+            <Link className='nav-link ' to="/login"><Button variant="dark" className='rounded-pill '>Log In</Button></Link>
+           
             </>
 
           ) }
