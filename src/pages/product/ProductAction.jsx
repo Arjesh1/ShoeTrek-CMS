@@ -98,7 +98,7 @@ export const addProductAction = ({slug, ...rest}) => async (dispatch) => {
 
         toast.promise( promise, {
             pending: "Please wait..",
-            success: "Product has been added."
+            success: "Product has been updated."
         })
 
         //fetch all the category and mount in redux
