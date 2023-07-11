@@ -45,7 +45,7 @@ const {product} = useSelector(state => state.product)
               <td ><span className='bg-danger p-1 pe-2 ps-2 rounded text-white'>{item.status}</span></td>
             )}
           <td>{item.quantity}</td>
-          <td>{item.parentCat}</td>
+          <td>{item.parentCat.slice(0, 1).toUpperCase() + item.parentCat.slice(1)}</td>
           <td>{item.price}</td>
           <td>{item.salesPrice}</td>
           <td>{item.saleStarts}</td>
