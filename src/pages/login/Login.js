@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import MainLayout from '../../components/layout/MainLayout'
-import { Button, Col, Container, Form, Image, Row } from 'react-bootstrap'
+import { Button, Col, Container, Form, Image, InputGroup, Row } from 'react-bootstrap'
 import { userLoginInput } from '../../components/assets/inputFieldList'
 import { CustomInput } from '../../components/custominput/CustomInput'
 import login from '../../components/assets/images/login.jpg'
@@ -26,6 +26,8 @@ const Login = () => {
     setForm({
       ...form,
       [ name ]:value,
+
+      
       
     })
   }
@@ -58,7 +60,25 @@ const Login = () => {
         
         <h2 className='text-center'>Login</h2>
         <hr/>
-          
+        
+        {/* <Form.Group  md="4" controlId="validationFormikUsername">
+              <Form.Label>Password</Form.Label>
+              <InputGroup hasValidation>
+                
+                <Form.Control
+                  type="text"
+                  placeholder="Password"
+                  aria-describedby="inputGroupPrepend"
+                  name="password"
+                 
+                />
+                <InputGroup.Text id="inputGroupPrepend"><Form.Check
+            label={<i class="fa-solid fa-eye"></i>}
+           /></InputGroup.Text>
+                 </InputGroup>
+            </Form.Group> */}
+
+
           {userLoginInput.map((item, i) => (
             <CustomInput key ={i} {...item} onChange={handleOnChange} />
           ))}

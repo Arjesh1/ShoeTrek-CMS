@@ -112,10 +112,12 @@ const EditProduct = () => {
   const handleOnImageChange = (e) =>{
     const {name, files} = e.target
 
-    setImages(files)
+    setImages([...files])
 
     
   }
+
+console.log(images)
 
   const handleOnImageDelete = (e) => {
     const{checked, value} = e.target
@@ -143,48 +145,48 @@ const EditProduct = () => {
 
     // to add more images incomplete to complete.
 
-    // if(images.length){
-    //   const img = images.map((image) => {
-    //     return new Promise((resolve, reject) =>{
-    //       const  storageRef = ref(
-    //         storage,
-    //         `/product/images/${Date.now()}-${image.name}`
+    if(images.length){
+      const img = images.map((image) => {
+        return new Promise((resolve, reject) =>{
+          const  storageRef = ref(
+            storage,
+            `/product/images/${Date.now()}-${image.name}`
 
-    //       )
+          )
 
-    //       const uploadImg = uploadBytesResumable(storageRef, image)
+          const uploadImg = uploadBytesResumable(storageRef, image)
 
-    //       uploadImg.on(
-    //         "state_changed",
-    //         (snapShot) =>{
-    //           const percentage = (snapShot.bytesTransferred/ snapShot.totalBytes) * 100
-    //           setProgress(percentage)
-    //         },
-    //         (error) =>{
-    //           console.log(error);
-    //         },
-    //         async() =>{
-    //           await getDownloadURL(uploadImg.snapshot.ref).then((url)=>{
-    //             console.log(url);
-    //             resolve(url)
+          uploadImg.on(
+            "state_changed",
+            (snapShot) =>{
+              const percentage = (snapShot.bytesTransferred/ snapShot.totalBytes) * 100
+              setProgress(percentage)
+            },
+            (error) =>{
+              console.log(error);
+            },
+            async() =>{
+              await getDownloadURL(uploadImg.snapshot.ref).then((url)=>{
+                console.log(url);
+                resolve(url)
 
-    //           })
+              })
 
 
-    //         }
-    //       )
-    //     })
-    //   })
+            }
+          )
+        })
+      })
     
-    //   const newimgUrlList = await Promise.all(img)
+      const newimgUrlList = await Promise.all(img)
 
-    //     const imgUrlList = [...updatedImgList, ...newimgUrlList];
+        const imgUrlList = [...updatedImgList, ...newimgUrlList];
 
-    //   console.log(imgUrlList);
+      console.log(imgUrlList);
 
-    //   // dispatch(addProductAction({...form, slug:id, imgUrlList, }))
+      dispatch(addProductAction({...form, slug:id, imgUrlList, }))
       
-    // }
+    }
     
   }
 
