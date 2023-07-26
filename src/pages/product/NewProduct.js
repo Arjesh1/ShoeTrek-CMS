@@ -32,7 +32,7 @@ const NewProduct = () => {
   const handleOnChange = (e)=>{
     let {name, value, checked  } = e.target
     if (name === "status") {
-      value = checked ? "Active" : "Inactive";
+      value = checked ? "active" : "inactive";
     }
 
 

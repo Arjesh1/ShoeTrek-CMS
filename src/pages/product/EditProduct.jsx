@@ -62,7 +62,7 @@ const EditProduct = () => {
       name: "salesPrice",
       type: "number",
       placeholder: "$150",
-      required: true,
+      
       value: form.salesPrice
     },
     {
@@ -98,7 +98,7 @@ const EditProduct = () => {
   const handleOnChange = (e)=>{
     let {name, value, checked  } = e.target
     if (name === "status") {
-      value = checked ? "Active" : "Inactive";
+      value = checked ? "active" : "inactive";
     }
     setForm({
       ...form,
@@ -225,7 +225,7 @@ console.log(images)
               label="Status"
               name="status"
               onChange={handleOnChange}
-              checked={form.status === "Active"}
+              checked={form.status === "active"}
             />
           </Form.Group>
 

@@ -51,15 +51,15 @@ const EditCategory = ({editCat}) => {
         <Form.Label>Status</Form.Label>
                 <Form.Select name='status' value={form.status} onChange={handleOnChange}>
                 <option value="">--Select--</option>
-                <option value="Active">Active</option>
-                <option value="Inactive">Inactive</option>
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
                 </Form.Select>
                 
               </Form.Group>
               
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Name</Form.Label>
-              <Form.Control type="text" placeholder="Electronics" name='name' value={form.name} required={true} onChange={handleOnChange} />
+              <Form.Control type="text" placeholder="Men" name='name' value={form.name} required={true} onChange={handleOnChange} />
             </Form.Group>
         
         

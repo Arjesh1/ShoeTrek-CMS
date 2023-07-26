@@ -96,7 +96,7 @@ export const userRegisterInput = [
       name: "salesPrice",
       type: "number",
       placeholder: "$150",
-      required: true,
+     
     },
     {
       label: "Sale Starts",

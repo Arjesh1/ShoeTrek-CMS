@@ -39,10 +39,10 @@ const {product} = useSelector(state => state.product)
           <td>{i + 1}</td>
           <td><img src={item.thumbnail} alt="" width={"100px"} /></td>
           <td>{item.name}</td>
-          {item.status === "Active"? (
-              <td ><span className='bg-success p-1 pe-2 ps-2 rounded text-white'>{item.status}</span></td>
+          {item.status === "active"? (
+              <td ><span className='bg-success p-1 pe-2 ps-2 rounded text-white'>{item.status.slice(0, 1).toUpperCase() + item.status.slice(1)}</span></td>
             ):(
-              <td ><span className='bg-danger p-1 pe-2 ps-2 rounded text-white'>{item.status}</span></td>
+              <td ><span className='bg-danger p-1 pe-2 ps-2 rounded text-white'>{item.status.slice(0, 1).toUpperCase() + item.status.slice(1)}</span></td>
             )}
           <td>{item.quantity}</td>
           <td>{item.parentCat.slice(0, 1).toUpperCase() + item.parentCat.slice(1)}</td>
