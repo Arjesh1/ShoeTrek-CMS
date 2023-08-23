@@ -16,9 +16,9 @@ const Reviews = () => {
       <UserLayout>
       <div className='fs-3 my-3 py-1 pt-2 fw-bold'>Reviews</div>
 
+<hr/>
 
-
-<div>
+<div className='mt-4 '>
  <ReviewsTable/>
 </div>
       </UserLayout>

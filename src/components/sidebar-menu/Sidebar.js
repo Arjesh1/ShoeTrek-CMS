@@ -6,6 +6,7 @@ import {MdCategory, MdOutlinePayment, MdOutlineReviews} from "react-icons/md"
 import {TbCategory} from "react-icons/tb"
 import {BsPeople} from "react-icons/bs"
 import {RiAdminLine} from "react-icons/ri"
+import Logo from "../assets/images/logo.png"
 
 
 
@@ -20,10 +21,12 @@ export const SidebarMenu = () => {
 
   return (
     <>
-    <div className="">
+    <div className="ps-3">
 
 
-      <div className="top pt-2 fs-4 text-center ">Admin CMS</div>
+      <div className="top pt-2 fs-4 text-center ">
+        <img src={Logo} alt="Logo" style={{height:"8rem", width:"auto"}}/>
+      </div>
       <hr />
       <div className="list ">
         <ul class="navbar-nav  sidebar sidebar-dark accordion">

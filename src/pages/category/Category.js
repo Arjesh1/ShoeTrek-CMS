@@ -80,7 +80,7 @@ const Category = () => {
         </Form>
         </div>
 
-        <div className='pt-2'>
+        <div className='mt-4'>
           <CategoryTable/>
         </div>
 

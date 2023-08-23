@@ -16,7 +16,7 @@ const {product} = useSelector(state => state.product)
 
   return (
     <div>
-      <Table striped  hover>
+      <Table striped  hover responsive>
       <thead>
         <tr className='table-secondary'>
           <th className='py-3 text-center' scope="col">#</th>

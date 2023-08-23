@@ -96,7 +96,7 @@ const Payment = () => {
   return (
     <div>
       <UserLayout>
-        <div className='fs-3 text-center fw-bold'>Payment</div>
+        <div className='fs-3 my-3 py-1 pt-2 fw-bold'>Payment</div>
         <hr/>
 
         <div>
@@ -149,7 +149,7 @@ const Payment = () => {
         </Form>
         </div>
 
-        <div className='pt-2'>
+        <div className='mt-4'>
           <PaymentTable/>
         </div>
 

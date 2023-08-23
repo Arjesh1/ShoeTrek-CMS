@@ -17,6 +17,7 @@ const Orders = () => {
 <UserLayout>
 <div className='fs-3 my-3 py-1 pt-2 fw-bold'>Orders</div>
 
+<hr/>
 
 
        <div>
