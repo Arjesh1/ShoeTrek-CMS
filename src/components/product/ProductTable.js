@@ -16,42 +16,38 @@ const {product} = useSelector(state => state.product)
 
   return (
     <div>
-      <Table striped bordered hover>
+      <Table striped  hover>
       <thead>
-        <tr>
-          <th>#</th>
-          <th>Thumbnails</th>
-          <th>Product Name</th>
-          <th>Status</th>
-          <th>Quantity</th>
-          <th>Category</th>
-          <th>Price</th>
-          <th>Sales Price</th>
-          <th>Sales Starts</th>
-          <th>Sales End</th>
-          <th>Description</th>
-          <th>Action</th>
+        <tr className='table-secondary'>
+          <th className='py-3 text-center' scope="col">#</th>
+          <th className='py-3 text-center' scope="col">Thumbnails</th>
+          <th className='py-3 text-center' scope="col"> Name</th>
+          <th className='py-3 text-center' scope="col">Status</th>
+          <th className='py-3 text-center' scope="col">Quantity</th>
+          <th className='py-3 text-center' scope="col">Category</th>
+          <th className='py-3 text-center' scope="col">Price</th>
+          <th className='py-3 text-center' scope="col">Sales</th>
+          <th className='py-3 text-center' scope="col">Description</th>
+          <th className='py-3 text-center' scope="col">Action</th>
         </tr>
       </thead>
       <tbody>
         {product.map((item, i)=>(
         <tr key={item}>
-          <td>{i + 1}</td>
-          <td><img src={item.thumbnail} alt="" width={"100px"} /></td>
-          <td>{item.name}</td>
+          <td className='text-center align-middle'>{i + 1}</td>
+          <td className='text-center align-middle'><img src={item.thumbnail} alt="" width={"100px"} /></td>
+          <td className='text-center align-middle'>{item.name}</td>
           {item.status === "active"? (
-              <td ><span className='bg-success p-1 pe-2 ps-2 rounded text-white'>{item.status.slice(0, 1).toUpperCase() + item.status.slice(1)}</span></td>
+              <td className='text-center align-middle '><span className='bg-success-subtle py-2 px-3 rounded fw-semibold '>{item.status.slice(0, 1).toUpperCase() + item.status.slice(1)}</span></td>
             ):(
-              <td ><span className='bg-danger p-1 pe-2 ps-2 rounded text-white'>{item.status.slice(0, 1).toUpperCase() + item.status.slice(1)}</span></td>
+              <td className='text-center align-middle'><span className='bg-danger-subtle py-2 px-3 rounded fw-semibold '>{item.status.slice(0, 1).toUpperCase() + item.status.slice(1)}</span></td>
             )}
-          <td>{item.quantity}</td>
-          <td>{item.parentCat.slice(0, 1).toUpperCase() + item.parentCat.slice(1)}</td>
-          <td>{item.price}</td>
-          <td>{item.salesPrice}</td>
-          <td>{item.saleStarts}</td>
-          <td>{item.saleEnds}</td>
-          <td>{item.description}</td>
-          <td>
+          <td className='text-center align-middle'>{item.quantity}</td>
+          <td className='text-center align-middle'>{item.parentCat.slice(0, 1).toUpperCase() + item.parentCat.slice(1)}</td>
+          <td className='text-center align-middle'>{item.price}</td>
+          <td className='text-center align-middle'>{item.salesPrice}</td>
+          <td className='text-center align-middle'>{item.description}</td>
+          <td className='text-center align-middle'>
             <Link to  = {`/product/${item.slug}`}>
             <Button variant='warning'>Edit</Button>
             </Link>

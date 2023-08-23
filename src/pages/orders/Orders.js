@@ -1,8 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import UserLayout from '../../components/layout/UserLayout'
 import OrdersTable from '../../components/orders/OrdersTable'
+import { useDispatch } from 'react-redux'
+import { getOrdersAction } from './OrderAction'
 
 const Orders = () => {
+
+  const dispatch = useDispatch()
+
+  useEffect(()=>{
+    dispatch(getOrdersAction())
+  })
   return (
     <div>
 

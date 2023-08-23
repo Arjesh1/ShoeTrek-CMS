@@ -1,9 +1,15 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 const OrdersTable = () => {
+
+    const {orders} = useSelector(state => state.product)
+
+    console.log(orders);
+    
   return (
     <>
-    <table class="table">
+    <table class="table table-striped">
   <thead>
     <tr className='table-secondary'>
       <th className='py-3 text-center' scope="col">S/N</th>
@@ -17,28 +23,49 @@ const OrdersTable = () => {
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row" className='text-center align-middle'>1</th>
-      <td className='text-center align-middle'>Processing</td>
-      <td className='text-center align-middle'>1691493764046</td>
-      <td className='text-center align-middle'>ETKI-1691493768792</td>
+    {orders?.map((item,i) =>(
+      <tr key={item.id}>
+      <th scope="row" className='text-center align-middle'>{i + 1}</th>
       <td className='text-center align-middle'>
-        <p>Arjesh Khadka <br/>
-        100 Sussex street<br/>
-        Sydney, NSW,<br/>
-        Australia, 2000
+        <p className='bg-success-subtle py-2 rounded fw-semibold'>{item.status}</p>
+        
+        
+        </td>
+      <td className='text-center align-middle'>{new Date(item.orderDate).toLocaleString().slice(0,10).replace(',', '')}</td>
+      <td className='text-center align-middle'>{item.orderNumber}</td>
+      <td className='text-center align-middle'>
+        <p>{item.firstName + " "+ item.lastName} <br/>
+        {item.streetAddress}<br/>
+        {item.city + ", " + item.region},<br/>
+        {item.country + ", " + item.postalCode}
         
         </p>
         
       </td>
       <td className='text-center align-middle'>
-        <p>Black Sneakers <br/>
-        Black Sneakers<br/>
-        </p>
+        
+          
+          <p className=''>
+          {item?.product.map((productItem) =>(
+            
+            
+             <span>{productItem.name+"(" +productItem.size +")"+ "-" + productItem.quantity}<br/></span> 
+             
+             ))} 
+ 
+ </p>
+          
+ 
+        
+       
+        
         </td>
-      <td className='text-center align-middle'>$299</td>
+      <td className='text-center align-middle'>${item.totalPrice}</td>
       
     </tr>
+        
+    ))}
+    
     
     
   </tbody>
