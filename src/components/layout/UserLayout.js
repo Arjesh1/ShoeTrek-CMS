@@ -12,17 +12,20 @@ const UserLayout = ({children}) => {
 
         {/* header */}
         {/* <div className='fixed-top  '> */}
-        <Header />
+        
         {/* </div> */}
 
       <Container fluid>
         <Row>
           <Col  xs={2}
               className="bg-dark text-light ps-3 pt-1"
-              style={{ minHeight: "82vh", width: "175px" }}>
+              style={{ minHeight: "93.5vh", width: "200px" }}
+              >
                 <SidebarMenu/>
               </Col>
-              <Col style={{ overflowX: "scroll" }}>{children}</Col>
+              <Col style={{ overflowX: "scroll" }}>
+              <Header />
+              {children}</Col>
         </Row>
       </Container>
      

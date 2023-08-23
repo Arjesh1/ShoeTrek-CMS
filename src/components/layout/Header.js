@@ -29,7 +29,7 @@ const Header = () => {
    
         <Navbar bg="body" variant="light" expand="lg" className='border-bottom border-dark'>
       <Container>
-        <Navbar.Brand href="#home">Shoe CMS</Navbar.Brand>
+        <Navbar.Brand href="#home" >Shoe CMS</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" >
           <Nav className="ms-auto fs-5">
