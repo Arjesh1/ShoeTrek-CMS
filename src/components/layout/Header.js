@@ -32,12 +32,22 @@ const Header = () => {
         <Navbar.Brand href="#home" >Shoe CMS</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" >
-          <Nav className="ms-auto fs-5">
+          <Nav className="ms-auto fs-6">
           <Nav.Link href="facebook.com">Main Page</Nav.Link>
           {user.uid? (
             <>
 
-          <Link className='nav-link' to="/dashboard">Dashboard</Link>
+<div class="btn-group" role="group">
+    <button  class=" dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+      Dropdown
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+      <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+    </ul>
+  </div>
+
+
           <Link className='nav-link'  disabled={true}><p className='text-dark'>{user.fName+ " " + user.lName}</p></Link>
           <Link className='nav-link'><Button variant="dark" className='rounded-pill' onClick={handleOnLogOut}>Log Out</Button></Link>
           </>

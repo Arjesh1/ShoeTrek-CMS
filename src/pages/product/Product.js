@@ -10,7 +10,7 @@ const Product = () => {
     <div>
       
       <UserLayout>
-        <Row className='mt-1'>
+        <Row className='mt-1 z-2'>
           <Col> <div className='fs-3 text-end fw-bold'>Products</div></Col>
           <Col><div className='d-flex justify-content-end mt-1'>
          <Link to="/product/add-product"> <Button className='text-end'>+ Add Products</Button></Link>

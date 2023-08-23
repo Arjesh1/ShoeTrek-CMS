@@ -2,5 +2,26 @@
     min-height: 82vh;
 }
 
+.smallDeviceNavbar{
+    display: none;
+
+
+}
+
+@media screen and (max-width: 768px) {
+    
+    .sidebar{
+        display: none;
+    }
+
+    .smallDeviceNavbar{
+        display: block;
+    }
+
+
+}
+
+
+
 
 

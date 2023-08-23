@@ -4,6 +4,7 @@ const initialState ={
     product:[],
     selectedProduct:{},
     orders:[],
+    reviews:[],
 }
 
 const productSlice = createSlice({
@@ -22,10 +23,13 @@ const productSlice = createSlice({
         setOrders: (state, {payload}) =>{
             state.orders = payload 
         },
+        setReviews: (state, {payload}) =>{
+            state.reviews = payload 
+        },
     }
 })
 
 const {reducer, actions} = productSlice
-export const {setProdu,setSelectedProduct, setOrders } = actions
+export const {setProdu,setSelectedProduct, setOrders, setReviews } = actions
 
 export default reducer
