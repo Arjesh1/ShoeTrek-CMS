@@ -19,14 +19,14 @@ const UserLayout = ({children}) => {
               className="bg-dark text-light ps-3 pt-1 sidebar"
               style={{ minHeight: "100vh", width: "225px" }}
               >
-                <SidebarMenu className=""/>
+                <SidebarMenu style={{position:"fixed"}}/>
               </Col>
               
               <Col className='p-0' >
                 
               <Header />
 
-                <div className='px-4 mt-3' style={{ overflowY: "scroll" }}>
+                <div className='px-4 mt-3' >
                 {children}
                 </div>
                 
