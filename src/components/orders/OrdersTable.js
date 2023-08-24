@@ -1,4 +1,5 @@
 import React from 'react'
+import { Table } from 'react-bootstrap';
 import { useSelector } from 'react-redux'
 
 const OrdersTable = () => {
@@ -9,7 +10,7 @@ const OrdersTable = () => {
     
   return (
     <>
-    <table class="table table-striped">
+    <Table striped  hover responsive>
   <thead>
     <tr className='table-secondary'>
       <th className='py-3 text-center' scope="col">S/N</th>
@@ -69,7 +70,7 @@ const OrdersTable = () => {
     
     
   </tbody>
-</table>
+</Table>
       
     </>
   )

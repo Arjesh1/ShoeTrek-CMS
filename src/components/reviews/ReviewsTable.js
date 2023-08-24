@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import Ratings from './Rating'
+import { Table } from 'react-bootstrap'
 
 const ReviewsTable = () => {
 
@@ -9,7 +10,7 @@ const ReviewsTable = () => {
   return (
     <>
 
-<table class="table table-striped">
+<Table striped  hover responsive>
   <thead>
     <tr className='table-secondary'>
       <th className='py-3 text-center' scope="col">S/N</th>
@@ -45,7 +46,7 @@ const ReviewsTable = () => {
     
     
   </tbody>
-</table>
+</Table>
 
 
       

@@ -7,7 +7,6 @@ import { setShowModal } from '../../system/systemSlice';
 const CustomModal = ({heading, children}) => {
 
   const dispatch = useDispatch();
-  const [modalShow, setModalShow] = useState(true);
   const { showModal } = useSelector((state) => state.system);
 
 

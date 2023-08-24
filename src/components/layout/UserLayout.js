@@ -1,11 +1,10 @@
 import React from 'react'
 import Header from './Header'
-import Footer from './Footer'
 import './layout.css'
-import { Col, Container, Row } from 'react-bootstrap'
+import { Col, Row } from 'react-bootstrap'
 import { SidebarMenu } from '../sidebar-menu/Sidebar'
 import "./layout.css"
-import SmallDeviceSidebar from '../sidebar-menu/SmallDeviceSidebar'
+
 
 
 const UserLayout = ({children}) => {
@@ -14,9 +13,7 @@ const UserLayout = ({children}) => {
 
        
       
-      <div className='smallDeviceNavbar mb-5 z-3 '>
-              <SmallDeviceSidebar/>
-              </div>
+      
         <Row className=''>
           <Col  xs={2}
               className="bg-dark text-light ps-3 pt-1 sidebar"
@@ -25,11 +22,11 @@ const UserLayout = ({children}) => {
                 <SidebarMenu className=""/>
               </Col>
               
-              <Col className='p-0' style={{ overflowX: "scroll" }}>
+              <Col className='p-0' >
                 
               <Header />
 
-                <div className='px-4 mt-3'>
+                <div className='px-4 mt-3' style={{ overflowY: "scroll" }}>
                 {children}
                 </div>
                 

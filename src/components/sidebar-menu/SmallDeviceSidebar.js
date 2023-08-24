@@ -5,30 +5,34 @@ import {TbCategory} from "react-icons/tb"
 import {BsPeople} from "react-icons/bs"
 import {RiAdminLine} from "react-icons/ri"
 import { Link } from 'react-router-dom';
+import Logo from "../assets/images/logo.png"
+import { Button } from 'react-bootstrap'
 
 const SmallDeviceSidebar = () => {
   return (
     <>
     <nav class="navbar  fixed-top">
       <div class="">
-        <button
-          class="navbar-toggler ms-2"
+        <Button
+          class="navbar-toggler ms-3 mt-2   bg-light"
           type="button"
           data-bs-toggle="offcanvas"
           data-bs-target="#offcanvasNavbar"
           aria-controls="offcanvasNavbar"
           aria-label="Toggle navigation"
+          variant='light'
+          
         >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+          <span class="navbar-toggler-icon bg-light"></span>
+        </Button>
         <div
-          class="offcanvas offcanvas-start bg-dark text-light w-75"
+          class="offcanvas offcanvas-start bg-dark text-light w-50"
           tabindex="-1"
           id="offcanvasNavbar"
           aria-labelledby="offcanvasNavbarLabel"
         >
           <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+          <img src={Logo} alt="Logo" style={{height:"7rem", width:"auto"}}/>
             <button
               type="button"
               class="btn-close btn-close-white   "

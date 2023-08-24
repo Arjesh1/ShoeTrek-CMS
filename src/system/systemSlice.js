@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   showModal: false,
+  showProfileModal: false,
 };
 const systemSlice = createSlice({
   name: "system",
@@ -10,11 +11,14 @@ const systemSlice = createSlice({
     setShowModal: (state, { payload }) => {
       state.showModal = payload;
     },
+    setShowProfileModal: (state, { payload }) => {
+      state.showProfileModal = payload;
+    },
   },
 });
 
 const { reducer, actions } = systemSlice;
 
-export const { setShowModal } = actions;
+export const { setShowModal, setShowProfileModal } = actions;
 
 export default reducer;

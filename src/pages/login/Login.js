@@ -6,7 +6,6 @@ import { CustomInput } from '../../components/custominput/CustomInput'
 import login from '../../components/assets/images/login.jpg'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import UserLayout from '../../components/layout/UserLayout'
 import "./login.css"
 import { loginUserAction } from '../user_Redux/userAction'
 
@@ -19,7 +18,7 @@ const Login = () => {
 
   useEffect(() => {
     user?.uid && navigate("/dashboard");
-  }, [user.uid]);
+  }, [user.uid, navigate]);
 
   const handleOnChange = (e)=>{
     const {name, value} = e.target
