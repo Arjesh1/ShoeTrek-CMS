@@ -14,7 +14,7 @@ const SmallDeviceSidebar = () => {
     <nav class="navbar  fixed-top">
       <div class="">
         <Button
-          class="navbar-toggler ms-3 mt-2   bg-light"
+          class="navbar-toggler ms-3 mt-3   bg-light"
           type="button"
           data-bs-toggle="offcanvas"
           data-bs-target="#offcanvasNavbar"

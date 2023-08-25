@@ -3,15 +3,29 @@
     border-radius: 3px;
 }
 
-.side-link::before {
-    background-color: black ;
+
+
+.sidebar{
+    position: fixed;
+    z-index: 3;
 }
 
-.side-link::after {
-    background-color: red ;
+.children-content{
+    width: calc(100% - 225px);
+    margin-left: auto;
+    margin-top: 6rem;
+
+
 }
 
-.side-link:active {
-    background-color: red ;
-}
+@media screen and (max-width: 768px) {
+    
+    .children-content{
+        width: 100%;
+        
+    
+    
+    }
 
+
+}

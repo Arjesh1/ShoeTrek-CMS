@@ -37,7 +37,7 @@ const Header = () => {
   return (
 
 
-    <>
+    <div className='fixed-top z-2'>
     <ProfileModal/>
 
 
@@ -84,7 +84,7 @@ const Header = () => {
 
 ):(
 
-  <div className="d-flex justify-content-between align-items-center bg-dark text-light px-4">
+  <div className="d-flex justify-content-between align-items-center bg-dark text-light px-4 z-3">
 
   <div className=' d-flex gap-1 py-3 px-1 pe-0 mt-2'>
 
@@ -110,53 +110,9 @@ const Header = () => {
 
 )}
 
+  
     
-    
-    
-{/*     
-    <Navbar bg="body" variant="light" expand="lg" className='border-bottom border-dark '>
-      <Container>
-        <Navbar.Brand href="#home" >Shoe CMS</Navbar.Brand> */}
-        {/* <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav" > */}
-          {/* <Nav className="ms-auto fs-6">
-          <Nav.Link href="facebook.com">Main Page</Nav.Link>
-          {user.uid? (
-            <>
-
-<div class="btn-group" role="group">
-    <button  class=" dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-      Dropdown
-    </button>
-    <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="#">Dropdown link</a></li>
-      <li><a class="dropdown-item" href="#">Dropdown link</a></li>
-    </ul>
-  </div>
-
-
-          <Link className='nav-link'  disabled={true}><p className='text-dark'>{user.fName+ " " + user.lName}</p></Link>
-          <Link className='nav-link'><Button variant="dark" className='rounded-pill' onClick={handleOnLogOut}>Log Out</Button></Link>
-          </> */}
-
-          {/* ):(
-
-            <>
-            <Link className='nav-link ' to="/login"><Button variant="dark" className='rounded-pill '>Log In</Button></Link>
-           
-            </>
-
-          ) }
-            
-            
-            
-            
-          </Nav> */}
-        {/* </Navbar.Collapse> */}
-      {/* </Container>
-    </Navbar> */}
-    
-    </>
+    </div>
    
         
 

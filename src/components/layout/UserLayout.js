@@ -26,7 +26,7 @@ const UserLayout = ({children}) => {
                 
               <Header />
 
-                <div className='px-4 mt-3' >
+                <div className='px-4  children-content' >
                 {children}
                 </div>
                 

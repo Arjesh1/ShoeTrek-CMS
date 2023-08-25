@@ -38,7 +38,7 @@ const Category = () => {
   return (
     <div>
       <UserLayout>
-        <div className='fs-3 text-center fw-bold'>Category</div>
+        <div className='fs-3 my-3 py-1 pt-2 fw-bold'>Category</div>
         <hr/>
 
         <div>

@@ -7,7 +7,8 @@ import { Button } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import { registerUserAction } from './RegisterAction';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { MdArrowBackIos } from 'react-icons/md';
 
 
 const Register = () => {
@@ -48,6 +49,20 @@ const Register = () => {
     
       <UserLayout>
       <div className='mt-3 pe-5 ps-5 pb-4'>
+        <Link to="/admin" className='nav-link'>
+        <div className=' d-flex '>
+          <div className='bg-secondary text-light p-2 rounded d-flex'>
+            <div>
+              <MdArrowBackIos/>
+            </div>
+            <div>
+            Back
+            </div>
+          
+          </div>
+          
+        </div>
+        </Link>
 
         <h3 className='text-center'>Register Admin</h3>
         <hr/>

@@ -28,7 +28,7 @@ const OrdersTable = () => {
       <tr key={item.id}>
       <th scope="row" className='text-center align-middle'>{i + 1}</th>
       <td className='text-center align-middle'>
-        <p className='bg-success-subtle py-2 rounded fw-semibold'>{item.status}</p>
+        <p className='bg-success-subtle py-2  rounded fw-semibold'>{item.status}</p>
         
         
         </td>

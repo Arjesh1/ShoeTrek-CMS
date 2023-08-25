@@ -18,11 +18,27 @@ import { PrivateRoute } from './privateRoute/PrivateRoute';
 import Payment from './pages/payment-option/Payment';
 import NewProduct from './pages/product/NewProduct';
 import EditProduct from './pages/product/EditProduct';
+import Admin from './pages/admin/Admin';
+import { useEffect } from 'react';
+import { getAdminsAction } from './pages/admin/AdminAction';
+import { getCategoriesAction } from './pages/category/CategoryAction';
+import { getOrdersAction } from './pages/orders/OrderAction';
+import { getProductsAction } from './pages/product/ProductAction';
+import { getClientsAction } from './pages/customers/CustomerAction';
 
 
 
 function App() {
   const dispatch = useDispatch()
+
+  useEffect(()=>{
+    dispatch(getAdminsAction())
+    dispatch(getCategoriesAction())
+    dispatch(getOrdersAction())
+    dispatch(getProductsAction())
+    dispatch(getClientsAction())
+
+  })
   
 
 
@@ -49,6 +65,11 @@ onAuthStateChanged(auth, (userData) =>{
         <Route path='register' element={
         <PrivateRoute>
         <Register/>
+        </PrivateRoute>}/>
+
+        <Route path='admin' element={
+        <PrivateRoute>
+        <Admin/>
         </PrivateRoute>}/>
 
         <Route path='dashboard' element={
