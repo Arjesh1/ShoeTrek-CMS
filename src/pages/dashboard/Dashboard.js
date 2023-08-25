@@ -6,8 +6,15 @@ import OrderIcon from '../../components/assets/images/orders.svg'
 import ClientIcon from '../../components/assets/images/clients.svg'
 import RecentOrders from '../../components/dashboard/RecentOrders'
 import Charts from '../../components/dashboard/Charts'
+import { useSelector } from 'react-redux'
 
 const Dashboard = () => {
+  const {category} = useSelector(state => state.cat)
+  const {clients} = useSelector(state => state.admin)
+  const {product, orders} = useSelector(state => state.product)
+  
+  
+
   return (
     <>
       <UserLayout>
@@ -22,7 +29,7 @@ const Dashboard = () => {
   <div>
   <p className="lh-2 fs-4 text-center">Category
               <br/>
-              <span className="fw-bold text-center fs-4">$4</span>
+              <span className="fw-bold text-center fs-4">{category.length}</span>
               </p>
     </div>
    </div>
@@ -34,7 +41,7 @@ const Dashboard = () => {
   <div>
   <p className="lh-2 fs-4 text-center">Products
               <br/>
-              <span className="fw-bold text-center fs-4">$4</span>
+              <span className="fw-bold text-center fs-4">{product.length}</span>
               </p>
     </div>
    </div>
@@ -46,7 +53,7 @@ const Dashboard = () => {
   <div>
   <p className="lh-2 fs-4 text-center">Orders
               <br/>
-              <span className="fw-bold text-center fs-4">$4</span>
+              <span className="fw-bold text-center fs-4">{orders.length}</span>
               </p>
     </div>
    </div>
@@ -57,7 +64,7 @@ const Dashboard = () => {
   <div>
   <p className="lh-2 fs-4 text-center">Clients
               <br/>
-              <span className="fw-bold text-center fs-4">$4</span>
+              <span className="fw-bold text-center fs-4">{clients.length}</span>
               </p>
     </div>
    </div>
@@ -68,7 +75,7 @@ const Dashboard = () => {
 {/* charts */}
 <div className=' shadow-lg p-3 rounded'>
   <div className=''>
-  <h5 className=''> Revenue </h5>
+ 
   </div>
 
   <div >
