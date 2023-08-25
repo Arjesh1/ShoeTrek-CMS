@@ -5,6 +5,7 @@ import ProductIcon from '../../components/assets/images/products.svg'
 import OrderIcon from '../../components/assets/images/orders.svg'
 import ClientIcon from '../../components/assets/images/clients.svg'
 import RecentOrders from '../../components/dashboard/RecentOrders'
+import Charts from '../../components/dashboard/Charts'
 
 const Dashboard = () => {
   return (
@@ -64,8 +65,21 @@ const Dashboard = () => {
 </div>
 </div>
 
+{/* charts */}
+<div className=' shadow-lg p-3 rounded'>
+  <div className=''>
+  <h5 className=''> Revenue </h5>
+  </div>
 
-<div>
+  <div >
+    <Charts/>
+  </div>
+
+
+</div>
+
+
+<div className='mt-4'>
 
   <RecentOrders/>
 </div>

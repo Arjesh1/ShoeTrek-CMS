@@ -1,6 +1,7 @@
 
 import React from 'react'
 import { Button, Table } from 'react-bootstrap'
+import { BsFillArrowRightCircleFill } from 'react-icons/bs'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
@@ -18,13 +19,13 @@ const RecentOrders = () => {
 
     <div className='shadow-lg p-3 rounded'>
 
-      <div className='d-flex justify-content-between align-items-center'>
+      <div className='d-flex justify-content-between align-items-center py-0'>
         <div>
         <h5 className=''> Recent Orders</h5>
         </div>
         <div>
-          <Link to="/orders">
-          <Button variant='primary'>See More</Button>
+          <Link to="/orders" className='nav-link'>
+          See More <BsFillArrowRightCircleFill/>
 
           </Link>
 
