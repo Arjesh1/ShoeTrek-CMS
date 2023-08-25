@@ -10,14 +10,20 @@ import { useSelector } from 'react-redux'
 
 const Dashboard = () => {
   const {category} = useSelector(state => state.cat)
-  const {clients} = useSelector(state => state.admin)
+  const {clients, user} = useSelector(state => state.admin)
   const {product, orders} = useSelector(state => state.product)
+  const totalOrders = orders.reduce((acc, obj) => acc + +obj.product.length, 0)
   
   
 
   return (
     <>
       <UserLayout>
+
+        <div className='p-3'>
+          <h2> Welcome Back</h2>
+          <h2> {user.fName + " " + user.lName}</h2>
+        </div>
       
       <div className=" pt-4 pb-5">
   <div className="container_box d-flex gap-5  justify-content-around flex-wrap">
@@ -53,7 +59,7 @@ const Dashboard = () => {
   <div>
   <p className="lh-2 fs-4 text-center">Orders
               <br/>
-              <span className="fw-bold text-center fs-4">{orders.length}</span>
+              <span className="fw-bold text-center fs-4">{totalOrders}</span>
               </p>
     </div>
    </div>
@@ -73,7 +79,7 @@ const Dashboard = () => {
 </div>
 
 {/* charts */}
-<div className=' shadow-lg p-3 rounded'>
+<div className='  '>
   <div className=''>
  
   </div>

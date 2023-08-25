@@ -67,6 +67,7 @@ const Charts = () => {
 
       const monthlyTotalIncomes = {};
       const totalRevenue = orders.reduce((acc, obj) => acc + +obj.totalPrice, 0)
+      const totalOrders = orders.reduce((acc, obj) => acc + +obj.product.length, 0)
 
       labels.forEach(month => {
         const filteredArray = orders.filter(obj => {
@@ -79,6 +80,20 @@ const Charts = () => {
         monthlyTotalIncomes[month] = totalIncome;
         
     })
+
+    const monthlyTotalOrders = {}
+    labels.forEach(month => {
+        const filteredArray = orders.filter(obj => {
+          const objDate = new Date(obj.orderDate);
+          return objDate.getMonth() === labels.indexOf(month);
+        });
+        
+        const totalOrders = filteredArray.reduce((acc, obj) => acc + +obj.product.length, 0);
+        monthlyTotalOrders[month] = totalOrders;
+ 
+    })
+    
+    
 
   
 
@@ -101,7 +116,7 @@ const Charts = () => {
                 monthlyTotalIncomes.September,
                 monthlyTotalIncomes.October,
                 monthlyTotalIncomes.November,
-                monthlyTotalIncomes.December,],
+                monthlyTotalIncomes.December],
             borderColor: 'rgb(53, 162, 235)',
             backgroundColor: 'rgba(53, 162, 235, 0.5)',
             tension:0.4,
@@ -118,7 +133,18 @@ const Charts = () => {
           {
             label: 'Orders',
             fill: true,
-            data: [1, 12, 334, 56, 576, 44,45, 78, 89,8 ,9, 67],
+            data: [monthlyTotalOrders.January,
+                monthlyTotalOrders.February, 
+                monthlyTotalOrders.March, 
+                monthlyTotalOrders.April, 
+                monthlyTotalOrders.May, 
+                monthlyTotalOrders.June, 
+                monthlyTotalOrders.July, 
+                monthlyTotalOrders.August, 
+                monthlyTotalOrders.September,
+                monthlyTotalOrders.October,
+                monthlyTotalOrders.November,
+                monthlyTotalOrders.December],
             borderColor: 'rgb(53, 162, 235)',
             backgroundColor: 'rgba(53, 162, 235, 0.5)',
             tension:0.4,
@@ -131,23 +157,23 @@ const Charts = () => {
    
     
   return (
-    <div  className=' d-flex flex-wrap ' style={{height:"40vh", width: "100%"}} >
+    <div  className=' d-flex gap-2 ' style={{height:"42vh", width: "100%"}} >
 
     
-        <div className='border-end border-dark pe-1' style={{height:"40vh", width: "50%"}}>
+        <div className=' pe-1 shadow-lg rounded p-2 py-3 ' style={{height:"42vh", width: "50%"}}>
             <div className='d-flex align-items-center gap-2'>
             <h6 className=''> Total Sales:  </h6>
-            <h5 className='p-2 shadow-lg text-success fw-bold rounded'>${totalRevenue}</h5>
+            <h5 className='p-2 shadow-sm text-success fw-bold rounded'>${totalRevenue}</h5>
             </div>
         
-        <Line  options={options} data={data} className='' />
+        <Line  options={options} data={data} className='mb-5' />
 
         </div>
 
-        <div className='ps-2' style={{height:"40vh", width: "50%"}}>
+        <div className='ps-2 shadow-lg rounded p-2 py-3' style={{height:"42vh", width: "50%"}}>
         <div className='d-flex align-items-center gap-2'>
             <h6 className=''> Total Orders:  </h6>
-            <h5 className='p-2 shadow-lg text-danger fw-bold rounded'>{orders.length}</h5>
+            <h5 className='p-2 shadow-sm text-danger fw-bold rounded'>{totalOrders}</h5>
             </div>
         <Bar options={options1} data={data1} />
 

@@ -9,7 +9,7 @@ import { setAdminAction } from '../../pages/registration/RegisterAction';
 import { doc, setDoc } from 'firebase/firestore';
 import { db } from '../../config/firebase-config';
 import { toast } from 'react-toastify';
-import { getUserAction } from '../../pages/user_Redux/userAction';
+import { getUserAction, loginUserAction } from '../../pages/user_Redux/userAction';
 
 const ProfileModal = () => {
     const dispatch = useDispatch();
@@ -38,6 +38,7 @@ const ProfileModal = () => {
         toast.success("Profile has been updated")
         dispatch(setShowProfileModal(false))
         dispatch(getUserAction())
+        dispatch(loginUserAction())
         
     } catch (error) {
         toast.error("Unable to update profile. Please try again later.")

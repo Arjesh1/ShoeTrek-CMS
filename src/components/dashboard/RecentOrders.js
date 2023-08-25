@@ -35,16 +35,14 @@ const RecentOrders = () => {
 
 <hr/>
       <div>
-      <Table   hover responsive>
+      <Table  hover responsive>
   <thead>
     <tr className='table-secondary '>
-      
       <th className='py-1 text-center fs-6' scope="col">Product</th>
       <th className='py-1 text-center fs-6' scope="col">Status</th>
       <th className='py-1 text-center fs-6' scope="col">Order Date</th>
       <th className='py-1 text-center fs-6' scope="col">Order Number</th>
-      
-      
+
     </tr>
   </thead>
   <tbody>
@@ -59,13 +57,13 @@ const RecentOrders = () => {
         </div>
         ))}
         </div>
-        
+          
 
 
       </td>
   
         <td className='text-center align-middle fs-6 p-0 py-1'>
-          <div className='bg-success-subtle text-center  align-middle py-1 px-1 rounded fs-6  fw-semibold'>
+          <div className='bg-success-subtle text-center  align-middle py-1  rounded fs-6  fw-semibold'>
           {item.status}
           </div>
           
