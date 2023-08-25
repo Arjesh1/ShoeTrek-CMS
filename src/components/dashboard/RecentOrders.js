@@ -35,21 +35,34 @@ const RecentOrders = () => {
 
 <hr/>
       <div>
-      <Table striped  hover responsive>
+      <Table   hover responsive>
   <thead>
     <tr className='table-secondary '>
-      <th className='py-1 text-center fs-6' scope="col">S/N</th>
+      
+      <th className='py-1 text-center fs-6' scope="col">Product</th>
       <th className='py-1 text-center fs-6' scope="col">Status</th>
       <th className='py-1 text-center fs-6' scope="col">Order Date</th>
       <th className='py-1 text-center fs-6' scope="col">Order Number</th>
-      <th className='py-1 text-center fs-6' scope="col">Amount</th>
+      
       
     </tr>
   </thead>
   <tbody>
     {sortedObject?.map((item,i) =>(
       <tr key={item.id} className=''> 
-      <th scope="row" className='text-center align-middle fs-6 p-0' >{i + 1}</th>
+      
+      <td className='d-flex justify-content-center'>
+        <div className='d-flex gap-1'>
+        {item.product?.map((product, i)=>(
+          <div key={product.id} className='d-flex gap-1'>
+          <img src={product.img} style={{height:"3rem"}} alt='product' className='rounded'/>
+        </div>
+        ))}
+        </div>
+        
+
+
+      </td>
   
         <td className='text-center align-middle fs-6 p-0 py-1'>
           <div className='bg-success-subtle text-center  align-middle py-1 px-1 rounded fs-6  fw-semibold'>
@@ -59,7 +72,7 @@ const RecentOrders = () => {
           </td>
       <td className='text-center align-middle fs-6 p-0'>{new Date(item.orderDate).toLocaleString().slice(0,10).replace(',', '')}</td>
       <td className='text-center align-middle fs-6 p-0'>{item.orderNumber}</td>
-      <td className='text-center align-middle fs-6 p-0'>${item.totalPrice}</td>
+          
       
     </tr>
         

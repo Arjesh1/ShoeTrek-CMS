@@ -137,7 +137,7 @@ const Charts = () => {
         <div className='border-end border-dark pe-1' style={{height:"40vh", width: "50%"}}>
             <div className='d-flex align-items-center gap-2'>
             <h6 className=''> Total Sales:  </h6>
-            <h5 className='p-2 bg-secondary-subtle text-success fw-bold rounded'>${totalRevenue}</h5>
+            <h5 className='p-2 shadow-lg text-success fw-bold rounded'>${totalRevenue}</h5>
             </div>
         
         <Line  options={options} data={data} className='' />
@@ -145,7 +145,10 @@ const Charts = () => {
         </div>
 
         <div className='ps-2' style={{height:"40vh", width: "50%"}}>
-        <h6 className=''> Total Orders </h6>
+        <div className='d-flex align-items-center gap-2'>
+            <h6 className=''> Total Orders:  </h6>
+            <h5 className='p-2 shadow-lg text-danger fw-bold rounded'>{orders.length}</h5>
+            </div>
         <Bar options={options1} data={data1} />
 
         </div>
