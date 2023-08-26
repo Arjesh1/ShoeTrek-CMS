@@ -20,7 +20,7 @@ const Dashboard = () => {
     <>
       <UserLayout>
 
-        <div className='p-3'>
+        <div className='p-3 '>
           <h2> Welcome Back</h2>
           <h2> {user.fName + " " + user.lName}</h2>
         </div>
