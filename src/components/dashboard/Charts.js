@@ -172,7 +172,7 @@ const Charts = () => {
 
         <div className='ps-2 shadow-lg rounded p-2 py-3' style={{height:"42vh", width: "50%"}}>
         <div className='d-flex align-items-center gap-2'>
-            <h6 className=''> Total Orders:  </h6>
+            <h6 className=''>Products Sold:  </h6>
             <h5 className='p-2 shadow-sm text-danger fw-bold rounded'>{totalOrders}</h5>
             </div>
         <Bar options={options1} data={data1} />

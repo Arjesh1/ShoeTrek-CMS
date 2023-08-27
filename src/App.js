@@ -25,6 +25,7 @@ import { getCategoriesAction } from './pages/category/CategoryAction';
 import { getOrdersAction } from './pages/orders/OrderAction';
 import { getProductsAction } from './pages/product/ProductAction';
 import { getClientsAction } from './pages/customers/CustomerAction';
+import Messages from './pages/messages/Messages';
 
 
 
@@ -114,7 +115,12 @@ onAuthStateChanged(auth, (userData) =>{
         <PrivateRoute>
         <Customers/>
       </PrivateRoute>}/>
+      <Route path='messages' element={
+        <PrivateRoute>
+        <Messages/>
+      </PrivateRoute>}/>
       </Routes>
+      
       
         
       

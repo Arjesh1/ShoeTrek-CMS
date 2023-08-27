@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import './sidebar.css'
-import {AiOutlineDashboard, AiOutlineShoppingCart} from "react-icons/ai"
+import {AiOutlineDashboard, AiOutlineMessage, AiOutlineShoppingCart} from "react-icons/ai"
 import {MdCategory, MdOutlinePayment, MdOutlineReviews} from "react-icons/md"
 import {TbCategory} from "react-icons/tb"
 import {BsPeople} from "react-icons/bs"
@@ -90,6 +90,14 @@ export const SidebarMenu = () => {
             <div className="d-flex gap-2 align-items-center text-light ">
               <BsPeople className="fs-3"/>  
             <span>Customers</span>
+              </div>
+            </Link>
+          </li>
+          <li className=" side-link pe-5 ps-1"  style={selectedList === "customers" ? { background: "grey" } : {}} >
+            <Link to="/messages" className="nav-link" onClick={() => handleItemClick("customers")}>
+            <div className="d-flex gap-2 align-items-center text-light ">
+              <AiOutlineMessage className="fs-3"/>  
+            <span>Messages</span>
               </div>
             </Link>
           </li>
