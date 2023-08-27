@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 
 const MessageTable = () => {
     const {messages} = useSelector(state => state.admin)
+    const sortedMessages = messages.sort((a,b) => a.date - b.date).slice(0,4)
   return (
     <>
 
@@ -24,21 +25,21 @@ const MessageTable = () => {
     </tr>
   </thead>
   <tbody>
-    {messages?.map((item,i) =>(
+    {sortedMessages?.map((item,i) =>(
       <tr key={item.id}>
       <th scope="row" className='text-center align-middle'>{i + 1}</th>
       <td className='text-center align-middle'>
-        {item.date}
+        {new Date(item.date).toLocaleString().slice(0,10).replace(',', '')}
         </td>
       <td className='text-center align-middle'>
         {item.subject}
         </td>
       <td className='text-center align-middle'>
-        {item?.firstName + " " + item?.lastName}
+        {item.fName + " " + item.lName}
         
         
         </td>
-        <td className='text-center align-middle'>{item?.phone}</td>
+        <td className='text-center align-middle'>{item.phone}</td>
       <td className='text-center align-middle'>{item.email}</td>
       <td className='text-center align-middle'>
         <Button> View</Button>
