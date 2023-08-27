@@ -16,7 +16,7 @@ const MainLayout = ({children}) => {
 
 
 
-        {/* main contetnt area */}
+        {/* main content area */}
        <div className='main ' >{children}</div>
 
         {/* footer section */}

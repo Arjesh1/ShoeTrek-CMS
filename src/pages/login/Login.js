@@ -45,7 +45,7 @@ const Login = () => {
   return (
     <>
     <MainLayout>
-      <div className='p-5'>
+      <div className='p-5 pb-1 d-block mt-5'>
       <Container>
 
         <Row>
@@ -60,22 +60,7 @@ const Login = () => {
         <h2 className='text-center'>Login</h2>
         <hr/>
         
-        {/* <Form.Group  md="4" controlId="validationFormikUsername">
-              <Form.Label>Password</Form.Label>
-              <InputGroup hasValidation>
-                
-                <Form.Control
-                  type="text"
-                  placeholder="Password"
-                  aria-describedby="inputGroupPrepend"
-                  name="password"
-                 
-                />
-                <InputGroup.Text id="inputGroupPrepend"><Form.Check
-            label={<i class="fa-solid fa-eye"></i>}
-           /></InputGroup.Text>
-                 </InputGroup>
-            </Form.Group> */}
+        
 
 
           {userLoginInput.map((item, i) => (

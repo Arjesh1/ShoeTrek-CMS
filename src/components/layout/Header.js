@@ -37,7 +37,7 @@ const Header = () => {
   return (
 
 
-    <div className='fixed-top z-2'>
+    <div className='fixed-top z-2 '>
     <ProfileModal/>
 
 
