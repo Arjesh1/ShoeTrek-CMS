@@ -4,6 +4,7 @@ const initialState ={
     user:{},
     clients:[],
     admins:[],
+    messages: [],
 }
 
 const userSlice = createSlice({
@@ -19,11 +20,14 @@ const userSlice = createSlice({
         setAdmins: (state, {payload}) =>{
             state.admins = payload 
         },
+        setMessages: (state, {payload}) =>{
+            state.messages = payload 
+        },
 
     }
 })
 
 const {reducer, actions} = userSlice
-export const {setUser, setClients, setAdmins} = actions
+export const {setUser, setClients, setAdmins, setMessages} = actions
 
 export default reducer

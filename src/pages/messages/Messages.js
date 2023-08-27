@@ -1,7 +1,16 @@
 import React from 'react'
 import UserLayout from '../../components/layout/UserLayout'
+import MessageTable from '../../components/messages/MessageTable'
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { getMessagesAction } from './MessageAction'
 
 const Messages = () => {
+    const dispatch = useDispatch()
+
+    useEffect(() =>{
+        dispatch(getMessagesAction())
+    })
   return (
     <>
     <UserLayout>
@@ -11,7 +20,7 @@ const Messages = () => {
 
 
        <div>
-        {/* <OrdersTable/> */}
+        <MessageTable/>
        </div>
       </UserLayout>
       
