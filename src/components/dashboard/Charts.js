@@ -157,10 +157,10 @@ const Charts = () => {
    
     
   return (
-    <div  className=' d-flex gap-2 ' style={{height:"42vh", width: "100%"}} >
+    <div  className=' d-flex gap-2 charts_group ' style={{height:"42vh", width: "100%"}} >
 
     
-        <div className=' pe-1 shadow-lg rounded p-2 py-3 ' style={{height:"42vh", width: "50%"}}>
+        <div className=' pe-1 shadow-lg rounded p-2 py-3  charts_item' style={{height:"42vh", width: "50%"}}>
             <div className='d-flex align-items-center gap-2'>
             <h6 className=''> Total Sales:  </h6>
             <h5 className='p-2 shadow-sm text-success fw-bold rounded'>${totalRevenue}</h5>
@@ -170,7 +170,7 @@ const Charts = () => {
 
         </div>
 
-        <div className='ps-2 shadow-lg rounded p-2 py-3' style={{height:"42vh", width: "50%"}}>
+        <div className='ps-2 shadow-lg rounded p-2 py-3 charts_item' style={{height:"42vh", width: "50%"}}>
         <div className='d-flex align-items-center gap-2'>
             <h6 className=''>Products Sold:  </h6>
             <h5 className='p-2 shadow-sm text-danger fw-bold rounded'>{totalOrders}</h5>

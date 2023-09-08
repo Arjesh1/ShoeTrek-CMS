@@ -59,7 +59,7 @@ const Header = () => {
       <IoIosNotificationsOutline/>
     </div>
     <div className="px-2">
-      <Nav.Link to="https://www.facebook.com/">
+      <Nav.Link to="https://shoe-trek.vercel.app/">
        Store page
        </Nav.Link>
        </div>

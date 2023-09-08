@@ -10,7 +10,7 @@ const RecentOrders = () => {
   const {orders} = useSelector(state => state.product)
   const orderArray = [...orders]
 
-  const sortedObject = orderArray.sort((a,b) => a.orderDate - b.orderDate).slice(0,4)
+  const sortedObject = orderArray.sort((a,b) => b.orderDate - a.orderDate).slice(0,4)
  
   
 
