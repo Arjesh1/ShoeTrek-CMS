@@ -73,7 +73,7 @@ const OrdersModal = ({ item }) => {
               >
                 <option value="">-- Select Status --</option>
                 <option value="Processing">Processing</option>
-                <option value="Ordered Approved">Ordered Approved</option>
+                <option value="Approved">Approved</option>
                 <option value="Shipped">Shipped</option>
                 <option value="Delivered">Delivered</option>
               </Form.Select>

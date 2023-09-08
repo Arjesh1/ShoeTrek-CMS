@@ -55,15 +55,19 @@ const OrdersTable = () => {
                 {i + 1}
               </th>
               <td className="text-center align-middle">
-                {item.status === "Delivered" ? (
-                  <p className="bg-success-subtle py-2  rounded fw-semibold">
-                    {item.status}
-                  </p>
-                ) : (
-                  <p className="bg-warning-subtle py-2  rounded fw-semibold">
-                    {item.status}
-                  </p>
-                )}
+                <p
+                  className={`py-2 rounded fw-semibold ${
+                    item.status === "Delivered"
+                      ? "bg-success-subtle"
+                      : item.status === "Shipped"
+                      ? "bg-info-subtle"
+                      : item.status === "Approved"
+                      ? "bg-primary-subtle"
+                      : "bg-warning-subtle"
+                  }`}
+                >
+                  {item.status}
+                </p>
               </td>
               <td className="text-center align-middle">
                 {new Date(item.orderDate)
@@ -81,7 +85,7 @@ const OrdersTable = () => {
                   {item.country + ", " + item.postalCode}
                 </p>
               </td>
-              <td className="text-center align-middle">
+              <td className="text-start align-middle">
                 <p className="">
                   {item?.product.map((productItem) => (
                     <span>
