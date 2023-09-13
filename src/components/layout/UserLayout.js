@@ -1,53 +1,27 @@
-import React from 'react'
-import Header from './Header'
-import './layout.css'
-import { Col, Row } from 'react-bootstrap'
-import { SidebarMenu } from '../sidebar-menu/Sidebar'
-import "./layout.css"
+import React from "react";
+import Header from "./Header";
+import "./layout.css";
+import { SidebarMenu } from "../sidebar-menu/Sidebar";
 
-
-
-const UserLayout = ({children}) => {
+const UserLayout = ({ children }) => {
   return (
     <div>
+      <div className="user-Layout">
+        <div
+          className="bg-dark text-light ps-3 pt-1 left"
+          style={{ minHeight: "100vh", width: "225px" }}
+        >
+          <SidebarMenu />
+        </div>
 
-       
-      
-      
-        <Row className=''>
-          <Col  xs={2}
-              className="bg-dark text-light ps-3 pt-1 sidebar"
-              style={{ minHeight: "100vh", width: "225px" }}
-              >
-                <SidebarMenu style={{position:"fixed"}}/>
-              </Col>
-              
-              <Col className='p-0' >
-                
-              <Header />
+        <div className="p-0 right">
+          <Header />
 
-                <div className='px-4  children-content' >
-                {children}
-                </div>
-                
-                
-              
-              </Col>
-        </Row>
-      
-     
-
-
-
-
-       
-
-        {/* footer section */}
-
-        {/* <Footer/> */}
-      
+          <div className="children-content">{children}</div>
+        </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default UserLayout
+export default UserLayout;

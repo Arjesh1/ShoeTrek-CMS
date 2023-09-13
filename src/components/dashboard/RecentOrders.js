@@ -14,7 +14,7 @@ const RecentOrders = () => {
 
   return (
     <>
-      <div className="shadow-lg p-3 rounded">
+      <div className="shadow-lg p-3 mt-5 rounded">
         <div className="d-flex justify-content-between align-items-center py-0">
           <div>
             <h5 className=""> Recent Orders</h5>
@@ -65,7 +65,7 @@ const RecentOrders = () => {
 
                   <td className="text-center align-middle fs-6 p-0 py-1">
                     <div
-                      className={`py-2 rounded fw-semibold ${
+                      className={`py-2 px-1 rounded fw-semibold ${
                         item.status === "Delivered"
                           ? "bg-success-subtle"
                           : item.status === "Shipped"

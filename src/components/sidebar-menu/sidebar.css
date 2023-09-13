@@ -1,31 +1,9 @@
-.side-link:hover{
-    background-color: rgb(68, 68, 68) ;
-    border-radius: 3px;
+.side-link:hover {
+  background-color: rgb(68, 68, 68);
+  border-radius: 3px;
 }
 
-
-
-.sidebar{
-    position: fixed;
-    z-index: 3;
-}
-
-.children-content{
-    width: calc(100% - 225px);
-    margin-left: auto;
-    margin-top: 6rem;
-
-
-}
-
-@media screen and (max-width: 768px) {
-    
-    .children-content{
-        width: 100%;
-        
-    
-    
-    }
-
-
+.sidebar {
+  position: fixed;
+  z-index: 3;
 }
