@@ -56,7 +56,7 @@ const OrdersTable = () => {
               </th>
               <td className="text-center align-middle">
                 <p
-                  className={`py-2 rounded fw-semibold ${
+                  className={`py-2 px-2 rounded fw-semibold ${
                     item.status === "Delivered"
                       ? "bg-success-subtle"
                       : item.status === "Shipped"

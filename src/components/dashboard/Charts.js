@@ -155,8 +155,8 @@ const Charts = () => {
   };
 
   return (
-    <div className=" d-flex gap-2 charts_group ">
-      <div className=" pe-1 shadow-lg rounded p-2 py-3  charts_item">
+    <div className=" d-flex gap-2 justify-content-between charts_group ">
+      <div className=" pe-1 w-100 shadow-lg rounded p-2 py-3  charts_item">
         <div className="d-flex align-items-center gap-2">
           <h6 className=""> Total Sales: </h6>
           <h5 className="p-2 shadow-sm text-success fw-bold rounded">
@@ -167,7 +167,7 @@ const Charts = () => {
         <Line options={options} data={data} className="mb-5" />
       </div>
 
-      <div className="ps-2 shadow-lg rounded p-2 py-3 charts_item ">
+      <div className="ps-2 w-100 shadow-lg rounded p-2 py-3 charts_item ">
         <div className="d-flex align-items-center gap-2">
           <h6 className="">Products Sold: </h6>
           <h5 className="p-2 shadow-sm text-danger fw-bold rounded">

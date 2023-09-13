@@ -18,17 +18,19 @@ export const SidebarMenu = () => {
 
   return (
     <>
-      <div className="ps-3 sidebar  ">
-        <div className="top pt-2 fs-4 text-center ">
-          <img
-            src={Logo}
-            alt="Logo"
-            style={{ height: "8rem", width: "auto" }}
-          />
-        </div>
+      <div className=" sidebar  " style={{ width: "225px" }}>
+        <Link to="/dashboard" className="nav-link ">
+          <div className="top pt-2 fs-4 text-center ">
+            <img
+              src={Logo}
+              alt="Logo"
+              style={{ height: "8rem", width: "auto" }}
+            />
+          </div>
+        </Link>
         <hr />
-        <div className="list bg-warning ">
-          <ul class="navbar-nav  sidebar sidebar-dark accordion  px-4 ">
+        <div className="list ">
+          <ul class="navbar-nav  sidebar sidebar-dark accordion  ps-4 ">
             <li
               className=" side-link nav-item active ps-1 pe-5"
               onClick={() => handleItemClick("dashboard")}

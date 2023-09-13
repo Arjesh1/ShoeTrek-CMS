@@ -36,11 +36,13 @@ const SmallDeviceSidebar = () => {
             aria-labelledby="offcanvasNavbarLabel"
           >
             <div class="offcanvas-header">
-              <img
-                src={Logo}
-                alt="Logo"
-                style={{ height: "7rem", width: "auto" }}
-              />
+              <Link to="/dashboard" className="nav-link  ">
+                <img
+                  src={Logo}
+                  alt="Logo"
+                  style={{ height: "7rem", width: "auto" }}
+                />
+              </Link>
               <button
                 type="button"
                 class="btn-close btn-close-white   "
