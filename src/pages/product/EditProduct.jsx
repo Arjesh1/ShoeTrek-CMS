@@ -266,7 +266,7 @@ const EditProduct = () => {
           </Form.Group>
 
           <div className="d-grid">
-            <Button variant="warning" type="submit">
+            <Button variant="warning" disabled type="submit">
               Update Product
             </Button>
           </div>
@@ -279,7 +279,7 @@ const EditProduct = () => {
           />
 
           <div className="d-grid mt-3">
-            <Button variant="danger" onClick={handleOnDelete}>
+            <Button variant="danger" disabled onClick={handleOnDelete}>
               Delete Product
             </Button>
           </div>
