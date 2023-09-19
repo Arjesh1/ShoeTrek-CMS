@@ -54,6 +54,10 @@ const Login = () => {
                 Email: a@a.com <br/>
                 Password: 123456
               </p>
+
+              <p className="text-xl ">
+                Some features like deleting and editing has been disable due to the risk of accidental data loss or misuse.
+              </p>
               
                 
               

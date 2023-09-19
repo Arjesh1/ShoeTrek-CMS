@@ -196,7 +196,10 @@ const EditProduct = () => {
         <div className="fs-3 text-center fw-bold">Edit Products</div>
         <hr />
 
-        <Form className="shadow-lg p-5 pt-1 " onSubmit={handleOnSubmit}>
+        <Form className="shadow-lg p-5 pt-1 "
+        //commented for preventing editing of data. 
+        // onSubmit={handleOnSubmit}
+        >
           <Form.Group className="mt-5">
             <Form.Check
               type="switch"
@@ -266,7 +269,7 @@ const EditProduct = () => {
           </Form.Group>
 
           <div className="d-grid">
-            <Button variant="warning" disabled  type="submit">
+            <Button variant="warning"   type="submit">
               Update Product
             </Button>
           </div>
@@ -279,7 +282,10 @@ const EditProduct = () => {
           />
 
           <div className="d-grid mt-3">
-            <Button variant="danger" disabled onClick={handleOnDelete}>
+            <Button variant="danger" 
+            //commented for preventing editing of data.  
+            // onClick={handleOnDelete}
+            >
               Delete Product
             </Button>
           </div>

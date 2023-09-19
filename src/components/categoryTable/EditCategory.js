@@ -39,7 +39,8 @@ const EditCategory = ({ editCat }) => {
     <div>
       <Form
         className=" p-5 pt-2 shadow m-auto rounded "
-        onSubmit={handleOnSubmit}
+        //commented for preventing editing of data. 
+        // onSubmit={handleOnSubmit}
       >
         <Form.Group className="">
           <Form.Label>Status</Form.Label>
@@ -67,13 +68,16 @@ const EditCategory = ({ editCat }) => {
         </Form.Group>
 
         <div className="d-grid">
-          <Button type="submit" disabled variant="primary">
+          <Button type="submit"  variant="primary">
             Update
           </Button>
         </div>
 
         <div className="d-grid mt-3">
-          <Button variant="danger" disabled  onClick={handleOnDelete}>
+          <Button variant="danger"  
+          //commented for preventing editing of data.  
+          // onClick={handleOnDelete}
+          >
             Delete
           </Button>
         </div>

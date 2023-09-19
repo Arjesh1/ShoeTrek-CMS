@@ -55,7 +55,10 @@ const PaymentTable = () => {
             ):(
               <td className='text-center align-middle' ><span className='bg-danger-subtle  p-1 pe-2 ps-2 rounded fw-semibold'>{item.status}</span></td>
             )}
-            <td className='text-center align-middle'><Button variant='warning' onClick={()=>{handleOnEdit(item)}} >Edit</Button></td>
+            <td className='text-center align-middle'><Button variant='warning' 
+            
+            onClick={()=>{handleOnEdit(item)}} 
+            >Edit</Button></td>
           </tr>
 
         ))}

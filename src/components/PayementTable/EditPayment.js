@@ -95,7 +95,10 @@ const EditPayment = ({editPayOpt}) => {
 
   return (
     <div>
-      <Form className=" p-5 pt-2 shadow m-auto rounded " onSubmit={handleOnSubmit}>
+      <Form className=" p-5 pt-2 shadow m-auto rounded " 
+      //commented for preventing editing of data. 
+      // onSubmit={handleOnSubmit}
+      >
       
 
      
@@ -130,7 +133,7 @@ const EditPayment = ({editPayOpt}) => {
         
         
         <div className='d-grid'>
-                  <Button type='submit' disabled variant='primary'>Update</Button>
+                  <Button type='submit'  variant='primary'>Update</Button>
                   </div>
 
                   <div className='d-grid'>
@@ -140,7 +143,10 @@ const EditPayment = ({editPayOpt}) => {
                   </div>
 
                   <div className='d-grid mt-3'>
-                  <Button  variant='danger' disabled onClick={handleOnDelete}>Delete</Button>
+                  <Button  variant='danger' 
+                  //commented for preventing editing of data.  
+                  // onClick={handleOnDelete}
+                  >Delete</Button>
                   </div>  
                      
               </Form>
