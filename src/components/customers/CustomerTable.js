@@ -32,7 +32,7 @@ const CustomerTable = () => {
         
         </td>
       <td className='text-center align-middle'>{item.email}</td>
-      <td className='text-center align-middle'>{item.number}</td>
+      <td className='text-center align-middle'>{item.phoneNumber}</td>
      
       
       <td className='text-center align-middle'>

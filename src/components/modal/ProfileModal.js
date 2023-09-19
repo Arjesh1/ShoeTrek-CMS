@@ -32,16 +32,18 @@ const ProfileModal = () => {
   }
 
   const handleOnSubmit = async(e) =>{
+   
     e.preventDefault()
     try {
         await setDoc(doc(db, "admin", user.uid), form)
         toast.success("Profile has been updated")
         dispatch(setShowProfileModal(false))
         dispatch(getUserAction())
-        dispatch(loginUserAction())
+        
         
     } catch (error) {
-        toast.error("Unable to update profile. Please try again later.")
+        toast.error("Unable to update profile. Please try again later.") 
+        console.log(error);
         
     }
       

@@ -130,7 +130,7 @@ const EditPayment = ({editPayOpt}) => {
         
         
         <div className='d-grid'>
-                  <Button type='submit' variant='primary'>Update</Button>
+                  <Button type='submit' disabled variant='primary'>Update</Button>
                   </div>
 
                   <div className='d-grid'>
@@ -140,7 +140,7 @@ const EditPayment = ({editPayOpt}) => {
                   </div>
 
                   <div className='d-grid mt-3'>
-                  <Button  variant='danger' onClick={handleOnDelete}>Delete</Button>
+                  <Button  variant='danger' disabled onClick={handleOnDelete}>Delete</Button>
                   </div>  
                      
               </Form>

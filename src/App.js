@@ -1,4 +1,4 @@
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import "./App.css";
 import "react-toastify/dist/ReactToastify.css";
 import Login from "./pages/login/Login";
@@ -120,9 +120,9 @@ function App() {
         <Route
           path="orders"
           element={
-            // <PrivateRoute>
+            <PrivateRoute>
             <Orders />
-            // </PrivateRoute>
+            </PrivateRoute>
           }
         />
         <Route
@@ -149,6 +149,8 @@ function App() {
             </PrivateRoute>
           }
         />
+
+<Route path="*" element={<Navigate to="/" />} />
       </Routes>
 
       <ToastContainer />

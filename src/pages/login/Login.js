@@ -48,6 +48,18 @@ const Login = () => {
       <div className='p-5 pb-1 d-block mt-5'>
       <Container>
 
+      <div className="d-flex justify-content-center mt-1  mb-2">
+            <div className="shadow-lg px-3 py-1">
+              <p className="text-xl ">
+                Email: a@a.com <br/>
+                Password: 123456
+              </p>
+              
+                
+              
+            </div>
+          </div>
+
         <Row>
           <Col md={5} className='login_side '>
           

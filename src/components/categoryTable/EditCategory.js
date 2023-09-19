@@ -73,7 +73,7 @@ const EditCategory = ({ editCat }) => {
         </div>
 
         <div className="d-grid mt-3">
-          <Button variant="danger" disabled onClick={handleOnDelete}>
+          <Button variant="danger" disabled  onClick={handleOnDelete}>
             Delete
           </Button>
         </div>
