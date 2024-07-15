@@ -1,70 +1,84 @@
-# Getting Started with Create React App
+# ShoeTrek CMS. [Live](https://shoe-store-cms.vercel.app/)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+ShoeTrek CMS is an content management system for admin to add categories, products, view orders, update the status and many more features for managing ecommerce brand [ShoeTrek](https://github.com/Arjesh1/ShoeTrek).
 
-In the project directory, you can run:
+## Technologies Used
 
-### `npm start`
+I have employed a range of modern technologies to build this project:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* **React & Redux:** For creating a user-friendly, smooth, and navigable website with state management.
+* **HTML and CSS:** To create well-structured and stylish web pages.
+* **Bootstrap:** To speed up the design process with ready-made and responsive styles.
+* **JavaScript:** For powering the website's interactive features.
+* **Firebase:** To handle backend services.
+* **Figma:** For designing the website's look and feel.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Admin Features
+1. **Efficient Content Management:**
+   - Seamlessly update product information and manage categories.
+   - Streamline inventory management for a dynamic online store.
 
-### `npm test`
+2. **Diverse Payment Method Control:**
+   - Offer multiple payment options to cater to user preferences.
+   - Integrate credit cards, digital wallets, and other gateways.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. **Order Status Customization:**
+   - Tailor order tracking experiences for enhanced user satisfaction.
+   - Keep customers informed at every stage of their purchase journey.
 
-### `npm run build`
+4. **Real-time Feedback Analysis:**
+   - Leverage customer reviews for data-driven decisions.
+   - Continuously improve based on user insights.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+5. **Data-Driven Decision-Making:**
+   - Utilize sales and order charts to inform strategic choices.
+   - Optimize pricing, inventory, and marketing strategies.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+6. **Sales and Order Charts:**
+   - Visualize crucial data for strategic insights.
+   - Monitor trends, identify patterns, and adapt accordingly.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Getting Started 
 
-### `npm run eject`
+Follow these instructions to get a copy of the project up and running on your local machine.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Prerequisites
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* Node.js
+* npm
+* Firebase account
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Installation
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. **Clone the Repo**
 
+   ```bash
+   git clone https://github.com/Arjesh1/ShoeTrek.git
+
+   ```
+
+2. **Install Dependencies**
+
+   ```bash
+   npm install
+
+   ```
+3. **Set up Firebase:**
+
+   * Create a Firebase project and get the configuration.
+   * Add the configuration to your project.
+
+
+4. **Start the Server**
+
+   ```bash
+   npm start
+   ```
+   
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
